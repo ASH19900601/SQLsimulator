@@ -1,0 +1,123 @@
+{
+  "at": "2026-10-24T09:23:28.336Z",
+  "browser": "Playwright WebKit 27.2 (Windows)",
+  "checks": [
+    {
+      "name": "desktop home loads with genuine empty progress",
+      "passed": true
+    },
+    {
+      "name": "real SQL execution and correct grading",
+      "passed": true
+    },
+    {
+      "name": "changing an answer clears stale correct feedback",
+      "passed": true
+    },
+    {
+      "name": "wrong SQL gives helpful failure without losing draft",
+      "passed": true
+    },
+    {
+      "name": "bookmark persists across reload",
+      "passed": true
+    },
+    {
+      "name": "hint alone does not create a wrong attempt",
+      "passed": true
+    },
+    {
+      "name": "empty search can recover with one action",
+      "passed": true
+    },
+    {
+      "name": "unexecuted lab draft survives a fresh reload",
+      "passed": true
+    },
+    {
+      "name": "exercise opens the relevant data table by default",
+      "passed": true
+    },
+    {
+      "name": "a write exercise shows the changed data and repeats from a fresh seed",
+      "passed": true
+    },
+    {
+      "name": "lab changes visible and survive reload",
+      "passed": true
+    },
+    {
+      "name": "lab reset is confirmed and restores original data",
+      "passed": true
+    },
+    {
+      "name": "IG mode clearly prevents AS write statements",
+      "passed": true
+    },
+    {
+      "name": "keyboard editor has an escape route",
+      "passed": true
+    },
+    {
+      "name": "source evidence exposes 41 independently inspected papers",
+      "passed": true
+    },
+    {
+      "name": "learning guide loads a runnable example into lab",
+      "passed": true
+    },
+    {
+      "name": "CSV export contains result headings and data",
+      "passed": true
+    },
+    {
+      "name": "backup export and import merge without deleting current progress",
+      "passed": true
+    },
+    {
+      "name": "invalid backup provides readable error",
+      "passed": true
+    },
+    {
+      "name": "timed challenge persists question, answer and deadline after reload",
+      "passed": true
+    },
+    {
+      "name": "phone responsive routes have no page overflow",
+      "passed": true
+    },
+    {
+      "name": "small-phone responsive routes have no page overflow",
+      "passed": true
+    },
+    {
+      "name": "ipad responsive routes have no page overflow",
+      "passed": true
+    },
+    {
+      "name": "ipad-landscape responsive routes have no page overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop responsive routes have no page overflow",
+      "passed": true
+    },
+    {
+      "name": "dark theme renders and survives reload",
+      "passed": true
+    },
+    {
+      "name": "offline reload retains engine, learning content and execution",
+      "passed": true
+    },
+    {
+      "name": "classic Worker actually executes SQL off the main thread",
+      "passed": true
+    },
+    {
+      "name": "no uncaught browser exceptions in checked flows",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

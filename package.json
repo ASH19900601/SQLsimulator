@@ -1,0 +1,19 @@
+{
+  "name": "querypath-caie-sql",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline-ready, syllabus-aware CAIE SQL learning studio",
+  "scripts": {
+    "start": "node scripts/server.mjs",
+    "dev": "node scripts/server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:ui": "node qa/browser-check.mjs"
+  },
+  "dependencies": {
+    "sql.js": "1.15.1"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  }
+}

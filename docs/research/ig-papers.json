@@ -1,0 +1,644 @@
+[
+  {
+    "id": "0478_m23_qp_22",
+    "year": 2023,
+    "session": "February/March",
+    "paper": "22",
+    "question": "9(d), 9(e)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        10
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_m23_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_m23_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "text literals",
+      "output prediction"
+    ],
+    "analysis": "图书库存情境同时要求追踪数值等值筛选的结果和补全按作者检索。选择的字段与筛选字段不同，不能把 WHERE 字段自动加入输出。评分分别检查结果记录与三个语句部分。",
+    "allowances": [
+      "评分示例允许文字常量使用单引号或双引号。",
+      "该题还接受用 LIKE 匹配完整作者名；这只证明这道题的等价答案获准，不证明 IG 要求通配符 LIKE。"
+    ]
+  },
+  {
+    "id": "0478_s23_qp_21",
+    "year": 2023,
+    "session": "May/June",
+    "paper": "21",
+    "question": "10(c)",
+    "pages": {
+      "qp": [
+        12,
+        13
+      ],
+      "ms": [
+        13
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s23_qp_21.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s23_ms_21.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "Boolean",
+      "$ identifiers"
+    ],
+    "analysis": "电视产品情境要求选择指定三个字段并筛选智能电视。字段含货币符号，执行器若仅允许字母数字下划线会拒绝真实试卷标识符。填空四个位置各有评分点。",
+    "allowances": [
+      "评分示例使用未加引号的 YES 作为布尔值；该表的 SmartTV 由数据类型题确认为 Boolean。"
+    ]
+  },
+  {
+    "id": "0478_s23_qp_22",
+    "year": 2023,
+    "session": "May/June",
+    "paper": "22",
+    "question": "10(c)",
+    "pages": {
+      "qp": [
+        10
+      ],
+      "ms": [
+        10
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s23_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s23_ms_22.pdf",
+    "topics": [
+      "SUM",
+      "COUNT",
+      "FROM",
+      "WHERE",
+      "text literals"
+    ],
+    "analysis": "音乐目录以同一类别条件对比时长求和与歌曲计数，重点在分清总量与记录数量。题面抽取文本的两个表达式未出现 SELECT；评分要求解释含义，而非把省略形式作为可执行 SQL。",
+    "allowances": [
+      "这是一道解释题，评分未给出完整可执行改写；教学示例仍应写完整 SELECT。"
+    ]
+  },
+  {
+    "id": "0478_s23_qp_23",
+    "year": 2023,
+    "session": "May/June",
+    "paper": "23",
+    "question": "10(d)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        13
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s23_qp_23.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s23_ms_23.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      ">=",
+      "output prediction",
+      "$ identifiers"
+    ],
+    "analysis": "度假屋数据考查包含边界值的筛选以及指定列的结果抄写。评分关注三条正确记录和横纵排列，说明输出题还需要练习列次序与按题面展示结果。",
+    "allowances": [
+      "本题没有提供额外 SQL 写法许可。",
+      "Rate$ 是题面原有字段名；不能视为非法标识符。"
+    ]
+  },
+  {
+    "id": "0478_w23_qp_21",
+    "year": 2023,
+    "session": "October/November",
+    "paper": "21",
+    "question": "9(c)",
+    "pages": {
+      "qp": [
+        10
+      ],
+      "ms": [
+        9
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w23_qp_21.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w23_ms_21.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "keyword meaning"
+    ],
+    "analysis": "模型商店题要求解释三个基本子句的职责：输出哪些字段、数据来自哪张表、按什么条件筛选。适合用作 SQL 结构理解题，而非只训练记忆一整条答案。",
+    "allowances": [
+      "没有特别替代语法；评分区分字段选择、表名和筛选条件。"
+    ]
+  },
+  {
+    "id": "0478_w23_qp_22",
+    "year": 2023,
+    "session": "October/November",
+    "paper": "22",
+    "question": "10(d)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        9
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w23_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w23_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "text literals"
+    ],
+    "analysis": "马匹登记表要求补全关键字、表名和产地条件字段。检索条件中的产地与要显示的品种是不同字段，数据面板应支持学习者检查这一区别。",
+    "allowances": [
+      "评分的完整语句使用双引号文字常量。",
+      "题面抽取中字段列表末尾有逗号，评分的完整语句没有；不得将尾逗号推广成合法教学语法。"
+    ]
+  },
+  {
+    "id": "0478_w23_qp_23",
+    "year": 2023,
+    "session": "October/November",
+    "paper": "23",
+    "question": "9(c), 9(d)",
+    "pages": {
+      "qp": [
+        12,
+        13
+      ],
+      "ms": [
+        11
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w23_qp_23.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w23_ms_23.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      ">",
+      "AND",
+      "Boolean"
+    ],
+    "analysis": "雉鸟资料先考查严格大于阈值的输出，后要求同时满足繁殖状态和幼鸟数量条件。此题把单条件查询推进到布尔与数值条件组合。",
+    "allowances": [
+      "评分允许直接把 Boolean 字段用作条件。",
+      "两个 AND 条件交换次序在该题评分中明确列为等价答案。"
+    ]
+  },
+  {
+    "id": "0478_m24_qp_22",
+    "year": 2024,
+    "session": "February/March",
+    "paper": "22",
+    "question": "9(c)",
+    "pages": {
+      "qp": [
+        11
+      ],
+      "ms": [
+        11
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_m24_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_m24_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "Boolean"
+    ],
+    "analysis": "仓储租赁题要求只输出代码、价格、面积并按升降设备状态筛选。评分给字段列表部分分，并独立检查数据表和布尔条件，支持教学时分项反馈。",
+    "allowances": [
+      "评分示例显式将 Hoist 与 TRUE 比较。",
+      "数据类型小题同时允许该属性以 Boolean 或文字表示；执行时必须以当前练习声明的类型为准。"
+    ]
+  },
+  {
+    "id": "0478_s24_qp_21",
+    "year": 2024,
+    "session": "May/June",
+    "paper": "21",
+    "question": "9(b)",
+    "pages": {
+      "qp": [
+        10
+      ],
+      "ms": [
+        14
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s24_qp_21.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s24_ms_21.pdf",
+    "topics": [
+      "SELECT",
+      "SUM",
+      "FROM",
+      "WHERE",
+      "=",
+      "text literals"
+    ],
+    "analysis": "饮料库存问的是罐装商品的库存数量总和，不是有多少条罐装商品记录。此例直接支持在 SUM 与 COUNT 间提供针对性纠错提示。",
+    "allowances": [
+      "评分示例使用单引号字符串。",
+      "SUM 的参数是库存数字字段，筛选字段是包装类型。"
+    ]
+  },
+  {
+    "id": "0478_s24_qp_22",
+    "year": 2024,
+    "session": "May/June",
+    "paper": "22",
+    "question": "10(c), 10(d)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        11
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s24_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s24_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "SUM",
+      "COUNT",
+      "FROM",
+      "WHERE",
+      "AND",
+      "Boolean"
+    ],
+    "analysis": "电视订阅题区分所有合约的月份累计与订阅新闻的合约数，再要求筛出同时订阅新闻和体育者。COUNT 仍由 WHERE 控制哪些记录参与计算。",
+    "allowances": [
+      "评分接受裸 Boolean 条件和显式与 TRUE 比较。",
+      "评分接受交换两个 AND 条件的次序。"
+    ]
+  },
+  {
+    "id": "0478_s24_qp_23",
+    "year": 2024,
+    "session": "May/June",
+    "paper": "23",
+    "question": "8(b), 8(c)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        12
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s24_qp_23.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s24_ms_23.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      ">",
+      "ORDER BY",
+      "Boolean",
+      "output prediction"
+    ],
+    "analysis": "航空收藏查询先过滤多发动机飞机，再按年份递增排列指定列。后续补全只显示标识与型号的可飞行记录。排序是独立于筛选和输出列的步骤。",
+    "allowances": [
+      "ORDER BY 未写方向时，评分结果按年份从小到大排列。",
+      "评分接受可飞行字段与 Y 比较，或直接使用该布尔字段作为条件。"
+    ]
+  },
+  {
+    "id": "0478_w24_qp_21",
+    "year": 2024,
+    "session": "October/November",
+    "paper": "21",
+    "question": "10(c), 10(d)(i–ii)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        11
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w24_qp_21.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w24_ms_21.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "Boolean",
+      "NOT",
+      "equivalent predicates"
+    ],
+    "analysis": "奶酪库存题先追踪供货商筛选，再要求检索缺货商品并提出使用另一字段的等价条件。数据中的缺货状态与零库存重量形成题目限定的等价关系。",
+    "allowances": [
+      "本题评分接受 NOT 加布尔字段、与 FALSE/No/带引号 No 比较，或以库存重量等于零筛选。",
+      "NOT 是已见评分许可，未列入 2026–2028 IG 数据库核心关键字名单。",
+      "两个条件只在题目给定的数据约束下等价，不能作为一般数据库定律。"
+    ]
+  },
+  {
+    "id": "0478_w24_qp_22",
+    "year": 2024,
+    "session": "October/November",
+    "paper": "22",
+    "question": "11(d)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        10
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w24_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w24_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "<>",
+      "Boolean",
+      "$ identifiers",
+      "output prediction"
+    ],
+    "analysis": "酒店预订题以不等于真值查找星期一可用客房，要求四列输出。此卷证明不等比较、短布尔写法与货币符号字段会出现在结果追踪题中。",
+    "allowances": [
+      "题面直接使用未加引号的 T，而表中对应字段由数据类型小题确认为 Boolean。",
+      "评分检查四个正确输出列、记录排列和无额外内容。"
+    ]
+  },
+  {
+    "id": "0478_w24_qp_23",
+    "year": 2024,
+    "session": "October/November",
+    "paper": "23",
+    "question": "4, 11(a), 11(b)(i–ii)",
+    "pages": {
+      "qp": [
+        3,
+        10
+      ],
+      "ms": [
+        5,
+        9,
+        10
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w24_qp_23.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w24_ms_23.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "ORDER BY",
+      "Boolean",
+      "NOT",
+      "equivalent predicates"
+    ],
+    "analysis": "建材库存先按重量筛选再按未显示的价格排序，后用状态或数量判断缺货。另有数据库术语题。适合练习排序字段不必出现在输出字段中，以及场景约束下的等价条件。",
+    "allowances": [
+      "评分给出默认递增的 ORDER BY 结果。",
+      "缺货筛选接受 NOT 布尔字段、FALSE/No/带引号 No，或袋数等于零；均为本题明确许可。"
+    ]
+  },
+  {
+    "id": "0478_m25_qp_22",
+    "year": 2025,
+    "session": "February/March",
+    "paper": "22",
+    "question": "8(c), 8(d)",
+    "pages": {
+      "qp": [
+        8,
+        9
+      ],
+      "ms": [
+        14
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_m25_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_m25_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "ORDER BY",
+      "Boolean",
+      "output prediction"
+    ],
+    "analysis": "城市资料先筛选指定洲并按人口排序，后补全只列出四个指定属性的首都查询。评分同时要求结果内容、三列布局及正确顺序。",
+    "allowances": [
+      "默认 ORDER BY 按人口递增。",
+      "首都查询的评分示例显式比较 TRUE。"
+    ]
+  },
+  {
+    "id": "0478_s25_qp_21",
+    "year": 2025,
+    "session": "May/June",
+    "paper": "21",
+    "question": "8(b), 8(c)",
+    "pages": {
+      "qp": [
+        8,
+        9
+      ],
+      "ms": [
+        12
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s25_qp_21.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s25_ms_21.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "text literals",
+      "Boolean"
+    ],
+    "analysis": "公交时刻表先按司机文字条件追踪结果，再按是否返程筛选只显示目的地。不同子题使用不同输出字段，练习不能仅比较返回的行数。",
+    "allowances": [
+      "评分示例使用未加引号的 Yes；Return 在前一小题明确为 Boolean。"
+    ]
+  },
+  {
+    "id": "0478_s25_qp_22",
+    "year": 2025,
+    "session": "May/June",
+    "paper": "22",
+    "question": "9(b)",
+    "pages": {
+      "qp": [
+        12
+      ],
+      "ms": [
+        12
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s25_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s25_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "text literals"
+    ],
+    "analysis": "首都资料要求列出指定洲的城市、国家、人口。四个评分点分别覆盖输出字段集合、FROM、条件字段与条件文字，适合逐项显示错误原因。",
+    "allowances": [
+      "评分明确接受单引号或双引号包围相同洲名。"
+    ]
+  },
+  {
+    "id": "0478_s25_qp_23",
+    "year": 2025,
+    "session": "May/June",
+    "paper": "23",
+    "question": "5(b)",
+    "pages": {
+      "qp": [
+        7
+      ],
+      "ms": [
+        13
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s25_qp_23.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_s25_ms_23.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "Boolean",
+      "projection order"
+    ],
+    "analysis": "电脑零件表按是否已补货筛选，显示标识、名称、订货日期。字段来自不同语义类别，要求精确读取表结构，而不是选择全部字段。",
+    "allowances": [
+      "本题评分明确允许 SELECT 中三个正确字段采用任意次序。",
+      "评分示例显式比较 TRUE；不要把其他输出题的列次序要求机械移植到本题。"
+    ]
+  },
+  {
+    "id": "0478_w25_qp_21",
+    "year": 2025,
+    "session": "October/November",
+    "paper": "21",
+    "question": "1, 8(d)",
+    "pages": {
+      "qp": [
+        2,
+        12
+      ],
+      "ms": [
+        7,
+        16
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w25_qp_21.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w25_ms_21.pdf",
+    "topics": [
+      "FROM",
+      "WHERE",
+      "ORDER BY",
+      "COUNT",
+      "SELECT",
+      "Boolean",
+      "keyword meaning"
+    ],
+    "analysis": "一题把表来源、筛选、排序、计数与关键字配对，另一题补全尚未获得出行许可的学生姓名查询。既检查概念理解，也检查布尔假值过滤。",
+    "allowances": [
+      "评分示例显式比较 False。",
+      "关键字配对的评分页含连线图；线性 PDF 文本顺序不能当作配对结果。"
+    ]
+  },
+  {
+    "id": "0478_w25_qp_22",
+    "year": 2025,
+    "session": "October/November",
+    "paper": "22",
+    "question": "7(c), 7(d)",
+    "pages": {
+      "qp": [
+        10,
+        11
+      ],
+      "ms": [
+        16
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w25_qp_22.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w25_ms_22.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "ORDER BY",
+      ">=",
+      "output prediction"
+    ],
+    "analysis": "水鸟资料的输出题按寿命排序，但输出只含种类、体长、翼展；写查询题再要求包含边界的寿命过滤并按种类排序。排序字段与输出字段解耦是重要验收项。",
+    "allowances": [
+      "ORDER BY 未写方向时，给定答案按寿命递增。",
+      "写查询的评分示例使用大于等于关系，并把 ORDER BY 接在筛选条件之后。"
+    ]
+  },
+  {
+    "id": "0478_w25_qp_23",
+    "year": 2025,
+    "session": "October/November",
+    "paper": "23",
+    "question": "8(b)",
+    "pages": {
+      "qp": [
+        10
+      ],
+      "ms": [
+        15
+      ]
+    },
+    "qpUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w25_qp_23.pdf",
+    "msUrl": "https://pastpapers.papacambridge.com/directories/CAIE/CAIE-pastpapers/upload/0478_w25_ms_23.pdf",
+    "topics": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "=",
+      "Boolean-like text"
+    ],
+    "analysis": "设备借用题筛选未归还物品，只展示描述与借用者。题面使用 Yes/No 值，评分采用带引号文字比较，提醒执行器不能强制所有此类表示只接受一种书写。",
+    "allowances": [
+      "评分示例使用双引号包围 No。",
+      "若应用把 Returned 建模为 Boolean，应仅针对该字段将题面布尔别名与文字表示归一，避免改写普通文字常量。"
+    ]
+  }
+]

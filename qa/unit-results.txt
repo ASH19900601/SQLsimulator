@@ -1,0 +1,636 @@
+TAP version 13
+# Subtest: IG query, sort field outside projection, double quotes, original string content
+ok 1 - IG query, sort field outside projection, double quotes, original string content
+  ---
+  duration_ms: 62.4121
+  type: 'test'
+  ...
+# Subtest: scope distinguishes IG and AS and rejects executable extras
+ok 2 - scope distinguishes IG and AS and rejects executable extras
+  ---
+  duration_ms: 5.943
+  type: 'test'
+  ...
+# Subtest: contextual Boolean, ordinary string No, bare and NOT Boolean conditions
+ok 3 - contextual Boolean, ordinary string No, bare and NOT Boolean conditions
+  ---
+  duration_ms: 27.9508
+  type: 'test'
+  ...
+# Subtest: AS joins, aggregates, aliases, group by, historical LIKE wildcard
+ok 4 - AS joins, aggregates, aliases, group by, historical LIKE wildcard
+  ---
+  duration_ms: 14.3138
+  type: 'test'
+  ...
+# Subtest: dates normalize hash literals and contextual quoted dates
+ok 5 - dates normalize hash literals and contextual quoted dates
+  ---
+  duration_ms: 14.5536
+  type: 'test'
+  ...
+# Subtest: writes persist, snapshots restore, reset seeds, failed batches roll back
+ok 6 - writes persist, snapshots restore, reset seeds, failed batches roll back
+  ---
+  duration_ms: 29.5431
+  type: 'test'
+  ...
+# Subtest: DDL types aliases, multiple ADD columns, primary key enforces uniqueness and non-null
+ok 7 - DDL types aliases, multiple ADD columns, primary key enforces uniqueness and non-null
+  ---
+  duration_ms: 55.6281
+  type: 'test'
+  ...
+# Subtest: ALTER foreign keys enforce actual references and protect atomic state
+ok 8 - ALTER foreign keys enforce actual references and protect atomic state
+  ---
+  duration_ms: 15.9987
+  type: 'test'
+  ...
+# Subtest: ORDER table name from real papers stays intact
+ok 9 - ORDER table name from real papers stays intact
+  ---
+  duration_ms: 11.029
+  type: 'test'
+  ...
+# Subtest: an empty query preserves projection columns for result headers and accurate grading
+ok 10 - an empty query preserves projection columns for result headers and accurate grading
+  ---
+  duration_ms: 5.2943
+  type: 'test'
+  ...
+# Subtest: aggregate queries reject arbitrary bare fields and accept grouped fields or PK-dependent fields
+ok 11 - aggregate queries reject arbitrary bare fields and accept grouped fields or PK-dependent fields
+  ---
+  duration_ms: 22.6449
+  type: 'test'
+  ...
+# Subtest: unordered query results preserve the multiset, not incidental row order
+ok 12 - unordered query results preserve the multiset, not incidental row order
+  ---
+  duration_ms: 1.6458
+  type: 'test'
+  ...
+# Subtest: ordering is enforced only when the task requires it
+ok 13 - ordering is enforced only when the task requires it
+  ---
+  duration_ms: 0.4065
+  type: 'test'
+  ...
+# Subtest: column order, projection width and NULL are meaningful
+ok 14 - column order, projection width and NULL are meaningful
+  ---
+  duration_ms: 0.3484
+  type: 'test'
+  ...
+# Subtest: small real numbers are not rounded into a false correct answer
+ok 15 - small real numbers are not rounded into a false correct answer
+  ---
+  duration_ms: 0.2148
+  type: 'test'
+  ...
+# Subtest: an unnecessary order is accepted when the question does not request one
+ok 16 - an unnecessary order is accepted when the question does not request one
+  ---
+  duration_ms: 105.4665
+  type: 'test'
+  ...
+# Subtest: empty SQL results retain their projection width for grading
+ok 17 - empty SQL results retain their projection width for grading
+  ---
+  duration_ms: 14.2861
+  type: 'test'
+  ...
+# Subtest: required aggregate titles accept another suitable alias but reject its omission
+ok 18 - required aggregate titles accept another suitable alias but reject its omission
+  ---
+  duration_ms: 25.3368
+  type: 'test'
+  ...
+# Subtest: supplemental boundary records distinguish >= from > despite an identical example result
+ok 19 - supplemental boundary records distinguish >= from > despite an identical example result
+  ---
+  duration_ms: 25.9271
+  type: 'test'
+  ...
+# Subtest: supplemental records reject names hardcoded to the visible answer
+ok 20 - supplemental records reject names hardcoded to the visible answer
+  ---
+  duration_ms: 23.9401
+  type: 'test'
+  ...
+# Subtest: a successful UPDATE is insufficient when it changes unintended records
+ok 21 - a successful UPDATE is insufficient when it changes unintended records
+  ---
+  duration_ms: 8.2843
+  type: 'test'
+  ...
+# Subtest: a query cannot satisfy an UPDATE task merely because the target currently has no rows
+ok 22 - a query cannot satisfy an UPDATE task merely because the target currently has no rows
+  ---
+  duration_ms: 5.8888
+  type: 'test'
+  ...
+# Subtest: a read task cannot be solved by changing the source data before returning matching rows
+ok 23 - a read task cannot be solved by changing the source data before returning matching rows
+  ---
+  duration_ms: 6.6437
+  type: 'test'
+  ...
+# Subtest: mutation checks also exercise the exact filtering boundary
+ok 24 - mutation checks also exercise the exact filtering boundary
+  ---
+  duration_ms: 17.8685
+  type: 'test'
+  ...
+# Subtest: INSERT grading compares the actual stored values, including identifier text
+ok 25 - INSERT grading compares the actual stored values, including identifier text
+  ---
+  duration_ms: 14.9632
+  type: 'test'
+  ...
+# Subtest: CREATE DATABASE must use the requested name
+ok 26 - CREATE DATABASE must use the requested name
+  ---
+  duration_ms: 11.315
+  type: 'test'
+  ...
+# Subtest: DDL recognizes the equivalent numeric type spellings used by mark schemes
+ok 27 - DDL recognizes the equivalent numeric type spellings used by mark schemes
+  ---
+  duration_ms: 7.1436
+  type: 'test'
+  ...
+# Subtest: CHAR is equivalent to CHARACTER without removing its declared width
+ok 28 - CHAR is equivalent to CHARACTER without removing its declared width
+  ---
+  duration_ms: 22.0985
+  type: 'test'
+  ...
+# Subtest: an empty table cannot conceal missing NOT NULL, incorrect types or an incorrect primary key
+ok 29 - an empty table cannot conceal missing NOT NULL, incorrect types or an incorrect primary key
+  ---
+  duration_ms: 25.6499
+  type: 'test'
+  ...
+# Subtest: a logically equivalent CREATE TABLE may declare columns in another order
+ok 30 - a logically equivalent CREATE TABLE may declare columns in another order
+  ---
+  duration_ms: 5.3934
+  type: 'test'
+  ...
+# Subtest: foreign-key declaration order is immaterial but the referenced table is not
+ok 31 - foreign-key declaration order is immaterial but the referenced table is not
+  ---
+  duration_ms: 19.392
+  type: 'test'
+  ...
+# Subtest: omitting a foreign key is detected even when the new table has no rows
+ok 32 - omitting a foreign key is detected even when the new table has no rows
+  ---
+  duration_ms: 9.1461
+  type: 'test'
+  ...
+# Subtest: a single primary-key field does not satisfy a composite-key question
+ok 33 - a single primary-key field does not satisfy a composite-key question
+  ---
+  duration_ms: 4.2851
+  type: 'test'
+  ...
+# Subtest: all published exercises have working SQL solutions, predictions or concept answer keys
+    # Subtest: ig-fields
+    ok 1 - ig-fields
+      ---
+      duration_ms: 0.3419
+      type: 'test'
+      ...
+    # Subtest: ig-key
+    ok 2 - ig-key
+      ---
+      duration_ms: 0.0673
+      type: 'test'
+      ...
+    # Subtest: ig-type
+    ok 3 - ig-type
+      ---
+      duration_ms: 0.0456
+      type: 'test'
+      ...
+    # Subtest: ig-select-names
+    ok 4 - ig-select-names
+      ---
+      duration_ms: 17.6589
+      type: 'test'
+      ...
+    # Subtest: ig-select-books
+    ok 5 - ig-select-books
+      ---
+      duration_ms: 13.3859
+      type: 'test'
+      ...
+    # Subtest: ig-select-customers
+    ok 6 - ig-select-customers
+      ---
+      duration_ms: 12.1565
+      type: 'test'
+      ...
+    # Subtest: ig-where-house
+    ok 7 - ig-where-house
+      ---
+      duration_ms: 14.8118
+      type: 'test'
+      ...
+    # Subtest: ig-where-score
+    ok 8 - ig-where-score
+      ---
+      duration_ms: 15.3646
+      type: 'test'
+      ...
+    # Subtest: ig-where-boolean
+    ok 9 - ig-where-boolean
+      ---
+      duration_ms: 10.7487
+      type: 'test'
+      ...
+    # Subtest: ig-and-active
+    ok 10 - ig-and-active
+      ---
+      duration_ms: 14.2485
+      type: 'test'
+      ...
+    # Subtest: ig-or-houses
+    ok 11 - ig-or-houses
+      ---
+      duration_ms: 14.4619
+      type: 'test'
+      ...
+    # Subtest: ig-and-stock
+    ok 12 - ig-and-stock
+      ---
+      duration_ms: 13.1469
+      type: 'test'
+      ...
+    # Subtest: ig-sort-price
+    ok 13 - ig-sort-price
+      ---
+      duration_ms: 12.359
+      type: 'test'
+      ...
+    # Subtest: ig-sort-title
+    ok 14 - ig-sort-title
+      ---
+      duration_ms: 11.8594
+      type: 'test'
+      ...
+    # Subtest: ig-sort-hidden
+    ok 15 - ig-sort-hidden
+      ---
+      duration_ms: 13.4152
+      type: 'test'
+      ...
+    # Subtest: ig-sum-stock
+    ok 16 - ig-sum-stock
+      ---
+      duration_ms: 10.0265
+      type: 'test'
+      ...
+    # Subtest: ig-count-active
+    ok 17 - ig-count-active
+      ---
+      duration_ms: 12.515
+      type: 'test'
+      ...
+    # Subtest: ig-sum-unpaid
+    ok 18 - ig-sum-unpaid
+      ---
+      duration_ms: 11.0372
+      type: 'test'
+      ...
+    # Subtest: ig-predict-score
+    ok 19 - ig-predict-score
+      ---
+      duration_ms: 2.3318
+      type: 'test'
+      ...
+    # Subtest: ig-predict-zero
+    ok 20 - ig-predict-zero
+      ---
+      duration_ms: 3.7106
+      type: 'test'
+      ...
+    # Subtest: ig-predict-count
+    ok 21 - ig-predict-count
+      ---
+      duration_ms: 2.373
+      type: 'test'
+      ...
+    # Subtest: ig-concept-clauses
+    ok 22 - ig-concept-clauses
+      ---
+      duration_ms: 0.0834
+      type: 'test'
+      ...
+    # Subtest: as-type-amount
+    ok 23 - as-type-amount
+      ---
+      duration_ms: 0.0356
+      type: 'test'
+      ...
+    # Subtest: as-type-time
+    ok 24 - as-type-time
+      ---
+      duration_ms: 0.0279
+      type: 'test'
+      ...
+    # Subtest: as-create-types
+    ok 25 - as-create-types
+      ---
+      duration_ms: 6.6153
+      type: 'test'
+      ...
+    # Subtest: as-create-database
+    ok 26 - as-create-database
+      ---
+      duration_ms: 4.9339
+      type: 'test'
+      ...
+    # Subtest: as-create-award
+    ok 27 - as-create-award
+      ---
+      duration_ms: 7.5918
+      type: 'test'
+      ...
+    # Subtest: as-alter-email
+    ok 28 - as-alter-email
+      ---
+      duration_ms: 5.2332
+      type: 'test'
+      ...
+    # Subtest: as-alter-two
+    ok 29 - as-alter-two
+      ---
+      duration_ms: 6.5739
+      type: 'test'
+      ...
+    # Subtest: as-alter-primary
+    ok 30 - as-alter-primary
+      ---
+      duration_ms: 11.9825
+      type: 'test'
+      ...
+    # Subtest: as-alter-foreign
+    ok 31 - as-alter-foreign
+      ---
+      duration_ms: 9.3911
+      type: 'test'
+      ...
+    # Subtest: as-insert-club
+    ok 32 - as-insert-club
+      ---
+      duration_ms: 4.9158
+      type: 'test'
+      ...
+    # Subtest: as-insert-student
+    ok 33 - as-insert-student
+      ---
+      duration_ms: 8.0882
+      type: 'test'
+      ...
+    # Subtest: as-insert-book
+    ok 34 - as-insert-book
+      ---
+      duration_ms: 4.1639
+      type: 'test'
+      ...
+    # Subtest: as-update-stock
+    ok 35 - as-update-stock
+      ---
+      duration_ms: 3.8792
+      type: 'test'
+      ...
+    # Subtest: as-update-two
+    ok 36 - as-update-two
+      ---
+      duration_ms: 4.9618
+      type: 'test'
+      ...
+    # Subtest: as-update-paid
+    ok 37 - as-update-paid
+      ---
+      duration_ms: 9.8832
+      type: 'test'
+      ...
+    # Subtest: as-delete-one
+    ok 38 - as-delete-one
+      ---
+      duration_ms: 4.2853
+      type: 'test'
+      ...
+    # Subtest: as-delete-fiction
+    ok 39 - as-delete-fiction
+      ---
+      duration_ms: 9.8766
+      type: 'test'
+      ...
+    # Subtest: as-delete-orders
+    ok 40 - as-delete-orders
+      ---
+      duration_ms: 10.5849
+      type: 'test'
+      ...
+    # Subtest: as-average
+    ok 41 - as-average
+      ---
+      duration_ms: 10.7731
+      type: 'test'
+      ...
+    # Subtest: as-group-stock
+    ok 42 - as-group-stock
+      ---
+      duration_ms: 11.3407
+      type: 'test'
+      ...
+    # Subtest: as-group-payment
+    ok 43 - as-group-payment
+      ---
+      duration_ms: 13.6339
+      type: 'test'
+      ...
+    # Subtest: as-like-prefix
+    ok 44 - as-like-prefix
+      ---
+      duration_ms: 11.1242
+      type: 'test'
+      ...
+    # Subtest: as-like-contains
+    ok 45 - as-like-contains
+      ---
+      duration_ms: 9.0599
+      type: 'test'
+      ...
+    # Subtest: as-like-suffix
+    ok 46 - as-like-suffix
+      ---
+      duration_ms: 10.7657
+      type: 'test'
+      ...
+    # Subtest: as-join-clubs
+    ok 47 - as-join-clubs
+      ---
+      duration_ms: 11.6911
+      type: 'test'
+      ...
+    # Subtest: as-join-publishers
+    ok 48 - as-join-publishers
+      ---
+      duration_ms: 12.8591
+      type: 'test'
+      ...
+    # Subtest: as-join-summary
+    ok 49 - as-join-summary
+      ---
+      duration_ms: 13.2919
+      type: 'test'
+      ...
+    1..49
+ok 34 - all published exercises have working SQL solutions, predictions or concept answer keys
+  ---
+  duration_ms: 444.5503
+  type: 'test'
+  ...
+# Subtest: every lesson example runs directly against its advertised dataset
+    # Subtest: ig-foundations
+    ok 1 - ig-foundations
+      ---
+      duration_ms: 2.1309
+      type: 'test'
+      ...
+    # Subtest: ig-select
+    ok 2 - ig-select
+      ---
+      duration_ms: 1.9933
+      type: 'test'
+      ...
+    # Subtest: ig-where
+    ok 3 - ig-where
+      ---
+      duration_ms: 2.2701
+      type: 'test'
+      ...
+    # Subtest: ig-logic
+    ok 4 - ig-logic
+      ---
+      duration_ms: 2.7849
+      type: 'test'
+      ...
+    # Subtest: ig-sort
+    ok 5 - ig-sort
+      ---
+      duration_ms: 3.916
+      type: 'test'
+      ...
+    # Subtest: ig-aggregate
+    ok 6 - ig-aggregate
+      ---
+      duration_ms: 1.9626
+      type: 'test'
+      ...
+    # Subtest: ig-read
+    ok 7 - ig-read
+      ---
+      duration_ms: 2.384
+      type: 'test'
+      ...
+    # Subtest: as-types
+    ok 8 - as-types
+      ---
+      duration_ms: 2.5598
+      type: 'test'
+      ...
+    # Subtest: as-create
+    ok 9 - as-create
+      ---
+      duration_ms: 5.1706
+      type: 'test'
+      ...
+    # Subtest: as-alter
+    ok 10 - as-alter
+      ---
+      duration_ms: 4.6302
+      type: 'test'
+      ...
+    # Subtest: as-insert
+    ok 11 - as-insert
+      ---
+      duration_ms: 2.7986
+      type: 'test'
+      ...
+    # Subtest: as-update
+    ok 12 - as-update
+      ---
+      duration_ms: 2.6409
+      type: 'test'
+      ...
+    # Subtest: as-delete
+    ok 13 - as-delete
+      ---
+      duration_ms: 5.8218
+      type: 'test'
+      ...
+    # Subtest: as-group
+    ok 14 - as-group
+      ---
+      duration_ms: 8.9487
+      type: 'test'
+      ...
+    # Subtest: as-like
+    ok 15 - as-like
+      ---
+      duration_ms: 1.6782
+      type: 'test'
+      ...
+    # Subtest: as-join
+    ok 16 - as-join
+      ---
+      duration_ms: 1.6756
+      type: 'test'
+      ...
+    1..16
+ok 35 - every lesson example runs directly against its advertised dataset
+  ---
+  duration_ms: 56.3606
+  type: 'test'
+  ...
+# Subtest: corrupted saved progress is retained for recovery before opening fresh state
+ok 36 - corrupted saved progress is retained for recovery before opening fresh state
+  ---
+  duration_ms: 1.2851
+  type: 'test'
+  ...
+# Subtest: merging a second device retains local drafts and earned mastery
+ok 37 - merging a second device retains local drafts and earned mastery
+  ---
+  duration_ms: 3.0344
+  type: 'test'
+  ...
+# Subtest: reference-assisted answer does not count as independent mastery
+ok 38 - reference-assisted answer does not count as independent mastery
+  ---
+  duration_ms: 0.2014
+  type: 'test'
+  ...
+# Subtest: invalid backup format rejected without changing current data
+ok 39 - invalid backup format rejected without changing current data
+  ---
+  duration_ms: 0.468
+  type: 'test'
+  ...
+1..39
+# tests 104
+# suites 0
+# pass 104
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1065.0492
