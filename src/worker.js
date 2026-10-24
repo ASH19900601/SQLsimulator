@@ -1,10 +1,10 @@
-// Instantiate as a classic worker: new Worker('/src/worker.js').
+// Instantiate as a classic worker using a URL relative to the application directory.
 let engine, SQL, createEngine;
 async function loadSql() {
   if (SQL) return SQL;
-  importScripts('/vendor/sql-wasm.js');
+  importScripts(new URL('../vendor/sql-wasm.js',self.location.href).href);
   ({createEngine} = await import('./engine.js'));
-  SQL = await globalThis.initSqlJs({locateFile:() => '/vendor/sql-wasm.wasm'});
+  SQL = await globalThis.initSqlJs({locateFile:() => new URL('../vendor/sql-wasm.wasm',self.location.href).href});
   return SQL;
 }
 self.onmessage = async ({data}) => {

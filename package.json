@@ -8,7 +8,8 @@
     "start": "node scripts/server.mjs",
     "dev": "node scripts/server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "test:ui": "node qa/browser-check.mjs"
+    "test:ui": "node qa/browser-check.mjs",
+    "test:pages": "node qa/pages-check.mjs"
   },
   "dependencies": {
     "sql.js": "1.15.1"

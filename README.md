@@ -16,6 +16,10 @@ The interface and explanations are primarily in Simplified Chinese, with English
 - Take a 15-minute practice challenge. Answers and the deadline survive a page refresh.
 - Keep drafts, progress, and lab data in your browser; transfer learning records through JSON backups. Use light or dark mode, keyboard shortcuts, and offline learning where supported.
 
+### Use online
+
+**[Open QueryPath](https://ash19900601.github.io/SQLsimulator/)** to start learning directly in your browser.
+
 ### Start locally
 
 Install **Node.js 22 or later**. With access to this repository, download its source or clone it:
@@ -121,6 +125,10 @@ QueryPath 是面向 Cambridge IGCSE Computer Science 0478（2026–2028）和 AS
 - 检查答案、逐步查看提示与参考解析、收藏题目、复习错题。查询题按结果判定，数据维护和表结构题按执行后的数据库状态判定；部分查询还使用补充数据检查。
 - 参加 15 分钟小挑战，刷新页面后保留答案和截止时间。
 - 在浏览器中保存草稿、进度和实验室数据，通过 JSON 备份迁移学习记录。支持深浅主题、键盘快捷操作和符合条件时的离线学习。
+
+### 在线使用
+
+**[打开 QueryPath](https://ash19900601.github.io/SQLsimulator/)**，在浏览器中直接开始学习。
 
 ### 在本机启动
 
