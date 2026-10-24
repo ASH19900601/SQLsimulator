@@ -96,9 +96,9 @@ npm run test:ui
 Remove-Item Env:BROWSER_ENGINE
 ```
 
-The recorded validation covers 104 passing unit/integration tests and 29 passing browser checks in each of Edge and Playwright WebKit. Layout checks include 360/390 px phones, 768/1024 px tablets, and 1440 px desktops. The browser tests ran on Windows.
+The recorded validation covers 104 passing unit/integration tests and 30 passing browser checks in each of Edge and Playwright WebKit. Layout checks include 360/390 px phones, 768/1024 px tablets, and 1440 px desktops. The browser tests ran on Windows.
 
-See the [validation report](qa/acceptance.md) and [31 documented fixes](qa/ux-fixes.md) for details.
+See the online check results for [Edge](qa/pages-results-chromium.json) and [WebKit](qa/pages-results-webkit.json), the [validation report](qa/acceptance.md), and [31 documented fixes](qa/ux-fixes.md).
 
 ### Project files and third-party notices
 
@@ -206,9 +206,9 @@ npm run test:ui
 Remove-Item Env:BROWSER_ENGINE
 ```
 
-验证记录包含 104 项通过的单元/集成测试，以及 Edge 和 Playwright WebKit 各 29 项通过的浏览器检查。布局检查覆盖 360/390 像素手机、768/1024 像素平板和 1440 像素电脑。浏览器测试运行于 Windows。
+验证记录包含 104 项通过的单元/集成测试，以及 Edge 和 Playwright WebKit 各 30 项通过的浏览器检查。布局检查覆盖 360/390 像素手机、768/1024 像素平板和 1440 像素电脑。浏览器测试运行于 Windows。
 
-详细记录见[验收报告](qa/acceptance.md)和 [31 项问题修复记录](qa/ux-fixes.md)。
+详细记录见线上 [Edge 检查](qa/pages-results-chromium.json)、[WebKit 检查](qa/pages-results-webkit.json)、[验收报告](qa/acceptance.md)和 [31 项问题修复记录](qa/ux-fixes.md)。
 
 ### 项目文件与第三方声明
 
