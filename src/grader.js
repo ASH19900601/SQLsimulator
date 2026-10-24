@@ -106,24 +106,24 @@ export async function gradeSql(SQL, exercise, dataset, sql) {
       const dbEqual = !/^\s*CREATE\s+DATABASE\b/i.test(exercise.solution) || key(actual.export().databaseName) === key(expected.export().databaseName);
       if (!equal || !dbEqual || aliasesMissing || !actionEqual || !queryUnchanged) {
         const detail = !actionEqual
-          ? `题目要求使用 ${command} 操作。即使当前数据没有变化，也需要完成相应的数据库操作。`
+          ? `This task requires a ${command} operation. Complete the requested operation even if the current data happens to be unchanged.`
           : !queryUnchanged
-            ? '查询题需要从原始数据得到结果，请移除修改数据或表结构的语句。'
+            ? "Read the original data for this query task. Remove statements that modify data or table structure."
           : aliasesMissing
-          ? '题目要求给聚合结果设置合适的列标题。请使用 AS 添加标题；不必与参考答案名称完全一致。'
+          ? "Give the aggregate result a suitable column heading using AS. Any meaningful alias is accepted."
           : i > 0
-            ? '示例数据的结果相同，但新增数据检查未通过。请检查筛选边界、连接条件或聚合范围。'
+            ? "The sample result matches, but an additional dataset failed. Check filter boundaries, join conditions and aggregate scope."
             : read
               ? got.columns.length !== want.columns.length
-                ? '输出字段数量不符，请检查 SELECT 字段列表。'
+                ? "The number of output columns differs. Check the SELECT field list."
                 : got.rows.length !== want.rows.length
-                  ? `结果应有 ${want.rows.length} 行，你的结果有 ${got.rows.length} 行。请检查 WHERE 条件和聚合方式。`
+                  ? `Expected ${want.rows.length} rows; your result has ${got.rows.length} rows. Check WHERE conditions and aggregation.`
                   : exercise.ordered
-                    ? '输出值或排序不符。请检查排序字段、方向和筛选条件。'
-                    : '结果值不符。请检查字段顺序、条件和聚合函数。'
+                    ? "The values or row order differ. Check the sort fields, direction and filter conditions."
+                    : "The result values differ. Check field order, conditions and aggregate functions."
               : !dbEqual
-                ? '数据库名称与题目要求不符。请检查 CREATE DATABASE 后的名称。'
-                : '执行成功，但数据库的内容或结构尚未达到题目要求。请检查目标表、字段类型、非空限制、主外键和受影响的记录。';
+                ? "The database name differs from the requested name. Check the name after CREATE DATABASE."
+                : "The statement ran, but the database does not yet match the task. Check the target table, field types, NOT NULL constraints, primary and foreign keys, and affected records.";
         return {passed: false, ...shown, detail};
       }
     } finally {
@@ -132,6 +132,6 @@ export async function gradeSql(SQL, exercise, dataset, sql) {
     }
   }
   return {passed: true, ...shown, detail: runs.length > 1
-    ? `结果正确，已通过示例及 ${runs.length - 1} 组补充数据检查。`
-    : '查询结果或数据库状态与题目要求相符。'};
+    ? `Correct. Passed the sample and ${runs.length - 1} additional datasets.`
+    : "The query result or database state matches the task."};
 }

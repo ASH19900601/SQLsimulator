@@ -6,7 +6,7 @@
 
 QueryPath is a browser-based SQL learning studio for Cambridge IGCSE Computer Science 0478 (2026–2028) and AS & A Level Computer Science 9618 (2026 and 2027–2029). Exam knowledge is the learning path: write queries, run them against real data, inspect the results, and practise the skills used in written examinations.
 
-The interface and explanations are primarily in Simplified Chinese, with English exercise prompts and SQL. The responsive layout supports desktop, phone, and tablet browsers. Open the app and start learning.
+The interface, lessons, exercises, hints and feedback use English. The responsive layout supports desktop, phone, and tablet browsers. Open the app and start learning.
 
 ### What you can do
 
@@ -44,7 +44,7 @@ Keep the computer running and allow the connection through its firewall. Use the
 
 #### Offline use and installation
 
-Service Worker caching works over **HTTPS or localhost**. Once the “离线学习已就绪” (“Offline learning is ready”) indicator appears, cached core lessons and SQL execution are available offline. Open external syllabus and past-paper links while connected to the internet.
+Service Worker caching works over **HTTPS or localhost**. Once the “Offline learning is ready” indicator appears, cached core lessons and SQL execution are available offline. Open external syllabus and past-paper links while connected to the internet.
 
 The local server provides HTTP for online use across your LAN. For PWA installation, use your browser's installation menu. On iPad, open an HTTPS deployment in Safari and choose **Share → Add to Home Screen**.
 
@@ -116,7 +116,7 @@ The bundled sql.js library is distributed under its [MIT licence](public/vendor/
 
 QueryPath 是面向 Cambridge IGCSE Computer Science 0478（2026–2028）和 AS & A Level Computer Science 9618（2026、2027–2029）的浏览器 SQL 学习器。考试知识是学习主线：编写查询、在真实数据上运行、观察结果，再通过练习掌握笔试所需的知识。
 
-界面和讲解以简体中文为主，练习题干与 SQL 使用英文。响应式布局支持电脑、手机和平板浏览器，打开即可开始学习。
+软件界面、课程讲解、练习、提示和反馈均使用英文。响应式布局支持电脑、手机和平板浏览器，打开即可开始学习。
 
 ### 可以做什么
 
@@ -154,7 +154,7 @@ SQL 引擎已包含在 `public/vendor/` 中，运行 `npm start` 即可启动应
 
 #### 离线使用与安装
 
-Service Worker 缓存通过 **HTTPS 或 localhost** 启用。看到“离线学习已就绪”后，即可离线使用已缓存的核心课程与 SQL 执行功能。外部考纲和真题链接可在联网时打开。
+Service Worker 缓存通过 **HTTPS 或 localhost** 启用。看到“Offline learning is ready”后，即可离线使用已缓存的核心课程与 SQL 执行功能。外部考纲和真题链接可在联网时打开。
 
 本地服务通过 HTTP 支持局域网在线使用。安装 PWA 时，使用浏览器的安装入口。在 iPad 上，用 Safari 打开 HTTPS 部署，选择“**分享 → 添加到主屏幕**”。
 

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-24T11:01:41.258Z",
+  "baselineCommit": "f9a59ac911c2f63f9f42c1268c561def3bcb7263",
+  "translatedContentValues": 550,
+  "unchangedContentValues": 1545,
+  "curriculum": {
+    "lessons": 16,
+    "exercises": 49,
+    "datasets": 3,
+    "sqlSeedsExamplesAnswersAndConfigurationUnchanged": true
+  },
+  "runtimeLogicStructureUnchanged": [
+    "src/app.js",
+    "src/engine.js",
+    "src/grader.js",
+    "src/state.js",
+    "src/worker.js"
+  ],
+  "documentAndManifestLanguage": "en",
+  "passed": true
+}

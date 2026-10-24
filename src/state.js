@@ -11,11 +11,11 @@ export function readState(storage = globalThis.localStorage) {
   } catch {
     let recovered=false;
     if(raw)try{storage.setItem(`${STORAGE_KEY}.recovery`,raw);recovered=true;}catch{}
-    return {state:emptyState(),warning:recovered?'本机记录损坏，已保留原始数据。可在「学习记录」导出恢复文件。':'无法读取本机记录。请检查浏览器是否允许本地存储，必要时导入备份。'};
+    return {state:emptyState(),warning:recovered?"Saved records were damaged. The original data was kept; export a recovery file from Progress.":"Saved records could not be read. Check browser storage permissions or import a backup."};
   }
 }
 export function validateBackup(input) {
-  if(!input || typeof input !== 'object' || input.version!==1) throw new Error('这不是受支持的 QueryPath 备份文件。');
+  if(!input || typeof input !== 'object' || input.version!==1) throw new Error("This file is not a supported QueryPath backup.");
   const output=emptyState();
   output.level=input.level==='as'?'as':'ig';
   output.year=['2026','2027','2028','2029'].includes(input.year)?input.year:'2026';

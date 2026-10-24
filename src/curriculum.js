@@ -1,10 +1,10 @@
 // Original learning content for CAIE SQL Studio. All exercise datasets are fictional.
-// Historical-paper evidence lives in docs/research; no past-paper questions are reproduced here.
+// Historical-paper evidence is linked in docs/research.
 export const datasets = [
   {
     "id": "campus",
-    "name": "校园社团",
-    "description": "8 名学生、4 个社团。练习筛选、布尔条件、排序与关联。Active 是布尔字段（1 为真、0 为假）。",
+    "name": "School clubs",
+    "description": "8 students and 4 clubs. Practise filtering, Boolean conditions, sorting and joins. Active is a Boolean field (1 means true; 0 means false).",
     "tables": [
       "STUDENT",
       "CLUB"
@@ -13,8 +13,8 @@ export const datasets = [
   },
   {
     "id": "library",
-    "name": "图书库存",
-    "description": "8 种书、4 家出版社。Stock 是库存件数，Price$ 是单价，Digital 是布尔字段。",
+    "name": "Book catalogue",
+    "description": "8 books and 4 publishers. Stock is the number of copies, Price$ is the unit price, and Digital is a Boolean field.",
     "tables": [
       "BOOK",
       "PUBLISHER"
@@ -23,8 +23,8 @@ export const datasets = [
   },
   {
     "id": "shop",
-    "name": "客户订单",
-    "description": "6 位客户、8 张订单。一个客户可有多张订单；Paid 是布尔字段，Total 是订单金额。",
+    "name": "Customer orders",
+    "description": "6 customers and 8 orders. A customer can have several orders. Paid is a Boolean field and Total is the order amount.",
     "tables": [
       "CUSTOMER",
       "ORDERS"
@@ -37,8 +37,8 @@ export const lessons = [
   {
     "id": "ig-foundations",
     "level": "ig",
-    "title": "认识表、字段与主键",
-    "subtitle": "从一张学生名单看懂数据库",
+    "title": "Tables, fields and primary keys",
+    "subtitle": "Understand databases through a student list",
     "minutes": 6,
     "keywords": [
       "table",
@@ -50,9 +50,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "SELECT StudentID, Name, Active\nFROM STUDENT;",
     "body": [
-      "一张表保存同一类事物。STUDENT 中一行是一名学生的记录，一列是一个字段。表头说明字段名，不计入记录数。",
-      "主键要能唯一识别每条记录。姓名可能重复，稳定且唯一的 StudentID 更合适。真实数据的唯一性比字段名字是否含 ID 更重要。",
-      "INTEGER 存整数，REAL 存小数，文字用 text/alphanumeric，BOOLEAN 表示真假，日期时间用于相应信息。先看字段含义和示例，再选择类型。"
+      "A table stores one kind of entity. In STUDENT, each row is one student's record and each column is a field. Column headings describe the fields and are excluded from the record count.",
+      "A primary key must identify each record uniquely. Names can repeat, so a stable, unique StudentID is a better choice. Check the uniqueness of the data rather than relying on an ID suffix in the field name.",
+      "INTEGER stores whole numbers, REAL stores fractional numbers, text/alphanumeric stores text, and BOOLEAN represents true or false. Date and time types store the corresponding values. Choose a type from the field's meaning and example data."
     ],
     "exerciseIds": [
       "ig-fields",
@@ -63,8 +63,8 @@ export const lessons = [
   {
     "id": "ig-select",
     "level": "ig",
-    "title": "选择要显示的字段",
-    "subtitle": "SELECT 与 FROM 是查询的骨架",
+    "title": "Choose the fields to display",
+    "subtitle": "SELECT and FROM form the query structure",
     "minutes": 7,
     "keywords": [
       "SELECT",
@@ -74,9 +74,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "SELECT Name, House\nFROM STUDENT;",
     "body": [
-      "SELECT 后写要显示的字段，用逗号分隔；FROM 后写数据表。结果列按字段列表排列。选两列不会删除原表的其他字段。",
-      "字段名和表名是标识符，文字值才放在引号里。只需显示名字和分院时，不要额外选出编号或分数。",
-      "建议把子句分行、关键字大写，并以分号结束。执行查询后，对照右侧数据表检查返回的是哪些列。"
+      "List output fields after SELECT, separated by commas, and name the table after FROM. Result columns follow the field-list order. Selecting two fields leaves all other stored fields unchanged.",
+      "Field and table names are identifiers; text values belong in quotes. If only names and houses are requested, select exactly those fields.",
+      "Put clauses on separate lines, capitalise SQL keywords and finish with a semicolon. Run the query and compare its output columns with the data table."
     ],
     "exerciseIds": [
       "ig-select-names",
@@ -87,8 +87,8 @@ export const lessons = [
   {
     "id": "ig-where",
     "level": "ig",
-    "title": "用条件找到记录",
-    "subtitle": "文字、数字与布尔值分别比较",
+    "title": "Find records with conditions",
+    "subtitle": "Compare text, numbers and Boolean values",
     "minutes": 9,
     "keywords": [
       "WHERE",
@@ -102,9 +102,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "SELECT Name, Score\nFROM STUDENT\nWHERE Score >= 80;",
     "body": [
-      "WHERE 筛选记录，SELECT 选择输出列。用于筛选的字段不必出现在结果中。文字值如 'Cedar' 加引号，数字通常不加。",
-      "大于等于包含边界值，大于不包含；不等于使用 <>。看到“至少”先考虑 >=，看到“超过”先考虑 >。",
-      "对 BOOLEAN 字段建议显式写 = TRUE 或 = FALSE。历史试卷也会出现 YES/NO 等表示；本工具按布尔字段类型解释这些写法，普通文本仍按文本比较。"
+      "WHERE filters records and SELECT chooses output columns. A filter field can be omitted from the output. Quote text such as 'Cedar'; numeric values usually appear without quotes.",
+      "Greater than or equal to includes the boundary; greater than excludes it. Use <> for not equal to. At least suggests >=, while more than suggests >.",
+      "For BOOLEAN fields, write = TRUE or = FALSE explicitly. Historical papers also use representations such as YES/NO. The learner interprets these according to the field's Boolean type; ordinary text fields retain text comparisons."
     ],
     "exerciseIds": [
       "ig-where-house",
@@ -115,8 +115,8 @@ export const lessons = [
   {
     "id": "ig-logic",
     "level": "ig",
-    "title": "组合多个条件",
-    "subtitle": "AND 同时满足，OR 至少满足一个",
+    "title": "Combine conditions",
+    "subtitle": "AND requires both; OR requires at least one",
     "minutes": 8,
     "keywords": [
       "AND",
@@ -126,9 +126,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "SELECT Name\nFROM STUDENT\nWHERE Active = TRUE AND Score >= 80;",
     "body": [
-      "AND 要求两个条件都成立，例如既活跃又达到分数线。OR 要求至少一个条件成立，例如属于 Maple 或 Willow。",
-      "每一侧都写完整条件。House = 'Maple' OR 'Willow' 没有完整表达第二次字段比较，不是本课采用的规范写法。",
-      "先分别核对每个条件能选出谁，再求交集或并集。混合条件可用括号明确分组，避免依赖记忆顺序。"
+      "AND requires both conditions, such as being active and meeting a score threshold. OR requires at least one condition, such as belonging to Maple or Willow.",
+      "Write a complete comparison on each side: House = 'Maple' OR House = 'Willow'. Each alternative must state the field being compared.",
+      "Check which records each individual condition selects, then take their intersection or union. Use parentheses to make the grouping of mixed conditions clear."
     ],
     "exerciseIds": [
       "ig-and-active",
@@ -139,8 +139,8 @@ export const lessons = [
   {
     "id": "ig-sort",
     "level": "ig",
-    "title": "让结果按顺序出现",
-    "subtitle": "ORDER BY 控制行顺序",
+    "title": "Put results in order",
+    "subtitle": "ORDER BY controls row order",
     "minutes": 8,
     "keywords": [
       "ORDER BY",
@@ -150,9 +150,9 @@ export const lessons = [
     "dataset": "library",
     "example": "SELECT Title, Price$\nFROM BOOK\nORDER BY Price$ ASCENDING;",
     "body": [
-      "ORDER BY 位于筛选之后。ASCENDING 表示递增，DESCENDING 表示递减。本工具同时理解常见 SQL 缩写 ASC 和 DESC。",
-      "没有写方向时采用递增。数字按大小比较，文字按顺序比较；排序字段不一定需要显示在 SELECT 的结果列中。",
-      "要求从高到低时必须体现递减；没有 ORDER BY 的查询不能保证通用数据库会以你期待的顺序返回。遇到并列值，题目应说明是否需要第二排序条件。"
+      "ORDER BY follows filtering. ASCENDING means lowest to highest and DESCENDING means highest to lowest. The learner also accepts the common abbreviations ASC and DESC.",
+      "The default direction is ascending. Numbers are compared by value and text by its ordering. A field used for sorting can be omitted from the SELECT output.",
+      "Use descending order when asked for highest to lowest. Without ORDER BY, a database's row order is not guaranteed. When values tie, check whether the task requires a second sorting field."
     ],
     "exerciseIds": [
       "ig-sort-price",
@@ -163,8 +163,8 @@ export const lessons = [
   {
     "id": "ig-aggregate",
     "level": "ig",
-    "title": "区分总数与总量",
-    "subtitle": "COUNT 计数，SUM 累加",
+    "title": "Counts and totals",
+    "subtitle": "COUNT counts; SUM adds",
     "minutes": 9,
     "keywords": [
       "SUM",
@@ -174,9 +174,9 @@ export const lessons = [
     "dataset": "library",
     "example": "SELECT SUM(Stock)\nFROM BOOK\nWHERE Genre = 'Computing';",
     "body": [
-      "COUNT 计算参与统计的记录或非空字段值数量。SUM 把数字字段累加。“有多少种书”和“库存一共有多少本”是不同问题。",
-      "WHERE 先筛选记录，再做统计。计算计算机类库存时，要先限定 Genre，再对 Stock 求和。",
-      "聚合查询通常返回一个汇总值；不能把一个普通字段和整体总和随意放在一起，否则该字段属于哪条记录就不明确。分组汇总在 AS 内容中学习。"
+      "COUNT counts records or non-NULL field values. SUM adds numeric values. How many book titles and how many copies in stock ask for different calculations.",
+      "WHERE filters the records before aggregation. To total computing stock, filter Genre first and then calculate SUM(Stock).",
+      "An aggregate query usually returns a summary value. Combining an ordinary field with an overall total leaves its source record ambiguous. Grouped summaries are covered in AS lessons."
     ],
     "exerciseIds": [
       "ig-sum-stock",
@@ -187,8 +187,8 @@ export const lessons = [
   {
     "id": "ig-read",
     "level": "ig",
-    "title": "读 SQL，写出结果",
-    "subtitle": "把纸面推演和真实运行对照",
+    "title": "Read SQL and predict its output",
+    "subtitle": "Compare your reasoning with a real query",
     "minutes": 10,
     "keywords": [
       "output prediction",
@@ -199,9 +199,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "SELECT Name, Score\nFROM STUDENT\nWHERE Score >= 80\nORDER BY Score DESCENDING;",
     "body": [
-      "预测结果时依次处理：找到表，应用条件，按要求排序，最后按 SELECT 的列次序写值。不要把字段名、引号或 SQL 逗号误当成数据内容。",
-      "本工具的预测题用 CSV 表示结果：每行一条记录，列之间用逗号分隔，不写表头。提交后可以查看标准结果与解释。",
-      "实际查询中筛选字段、排序字段和输出字段可以不同。完成推演后在实验室运行同一条 SQL，能直接检查自己的理解。"
+      "To predict a result, identify the table, apply conditions, sort as required, and write values in SELECT column order. Keep field names, SQL punctuation and data values distinct.",
+      "Prediction exercises use CSV: one record per line, comma-separated columns, and no header row. After submitting, you can inspect the expected result and explanation.",
+      "Filter, sort and output fields may differ. Run the same SQL in the lab after predicting its output to check your understanding."
     ],
     "exerciseIds": [
       "ig-predict-score",
@@ -213,8 +213,8 @@ export const lessons = [
   {
     "id": "as-types",
     "level": "as",
-    "title": "为数据选择类型",
-    "subtitle": "从字段含义写出表结构",
+    "title": "Choose data types",
+    "subtitle": "Turn field meanings into a table structure",
     "minutes": 9,
     "keywords": [
       "CHARACTER",
@@ -228,9 +228,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "CREATE TABLE ROOM (\n  RoomID INTEGER,\n  RoomName VARCHAR(30),\n  Capacity INTEGER\n);",
     "body": [
-      "9618 使用 CHARACTER、VARCHAR(n)、BOOLEAN、INTEGER、REAL、DATE、TIME。CHARACTER 适合字符数据，VARCHAR(n) 用于有长度上限的变长文字。",
-      "数量通常用 INTEGER，允许小数的测量值用 REAL，日期与时刻分别用 DATE 和 TIME。不要因为一个编号只含数字就必须把它作为可计算的整数。",
-      "CREATE TABLE 需要表名和括号内的字段定义，每个字段包含名字与类型，字段之间用逗号。下面任务会明确给出长度，便于检查结构。"
+      "9618 uses CHARACTER, VARCHAR(n), BOOLEAN, INTEGER, REAL, DATE and TIME. CHARACTER suits character data; VARCHAR(n) describes variable-length text with a specified maximum length.",
+      "Use INTEGER for whole quantities, REAL for measurements with fractional values, DATE for dates and TIME for times of day. An identifier made of digits may still be stored as text when its digits have no arithmetic meaning.",
+      "CREATE TABLE takes a table name and parenthesised field definitions. Each field needs a name and type; separate definitions with commas. The exercises specify text lengths where these are part of the task."
     ],
     "exerciseIds": [
       "as-type-amount",
@@ -241,8 +241,8 @@ export const lessons = [
   {
     "id": "as-create",
     "level": "as",
-    "title": "建立数据库与新表",
-    "subtitle": "CREATE 从结构开始",
+    "title": "Create databases and tables",
+    "subtitle": "Start with structure using CREATE",
     "minutes": 10,
     "keywords": [
       "CREATE DATABASE",
@@ -252,9 +252,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "CREATE TABLE AWARD (\n  AwardID INTEGER,\n  AwardName VARCHAR(40),\n  PRIMARY KEY (AwardID)\n);",
     "body": [
-      "数据库容纳多张表，表再保存记录。CREATE DATABASE 声明数据库；CREATE TABLE 声明表及字段。新表尚未插入数据时没有记录。",
-      "PRIMARY KEY 指定唯一标识，字段值不能重复。可在字段定义后写主键，也可用表级 PRIMARY KEY (...) 表达。",
-      "本工具把 CREATE DATABASE 实现为新的空白本地沙盒。切换或重置练习可以恢复初始数据，不会修改其他学生的数据。"
+      "A database contains tables, and tables contain records. CREATE DATABASE declares a database; CREATE TABLE declares a table and its fields. A new table has no records until data is inserted.",
+      "PRIMARY KEY declares a unique identifier whose values cannot repeat. Declare it inline after a field definition or as a table-level PRIMARY KEY (...) constraint.",
+      "QueryPath implements CREATE DATABASE as a new empty local sandbox. Switching or resetting an exercise restores its initial data. Each student's data stays in their own browser."
     ],
     "exerciseIds": [
       "as-create-database",
@@ -264,8 +264,8 @@ export const lessons = [
   {
     "id": "as-alter",
     "level": "as",
-    "title": "修改结构与建立关联",
-    "subtitle": "ALTER TABLE 添加字段和键",
+    "title": "Change structures and define relationships",
+    "subtitle": "Add fields and keys with ALTER TABLE",
     "minutes": 12,
     "keywords": [
       "ALTER TABLE",
@@ -277,9 +277,9 @@ export const lessons = [
     "dataset": "library",
     "example": "ALTER TABLE BOOK\nADD FOREIGN KEY (PublisherID)\nREFERENCES PUBLISHER(PublisherID);",
     "body": [
-      "已有表需要新字段时，用 ALTER TABLE 表名 ADD 字段名 类型。结构改变不会自动替你提供每条旧记录的新字段内容。",
-      "添加主键前，已有数据必须能满足唯一性。外键保存另一张表的键，用 REFERENCES 指明目标表与字段。",
-      "BOOK 的 PublisherID 关联 PUBLISHER 的 PublisherID；许多书可以由同一出版社出版。外键约束会阻止不存在出版社的编号，连接查询则负责把两表信息组合展示。"
+      "To add a field, use ALTER TABLE table_name ADD field_name type. Existing records need values assigned separately for their new field.",
+      "Existing data must meet uniqueness requirements before a primary key can be added. A foreign key references a key in another table; REFERENCES names the target table and field.",
+      "BOOK.PublisherID references PUBLISHER.PublisherID, allowing several books to share a publisher. The foreign-key constraint checks that the publisher exists. A join combines information from the related tables."
     ],
     "exerciseIds": [
       "as-alter-email",
@@ -291,8 +291,8 @@ export const lessons = [
   {
     "id": "as-insert",
     "level": "as",
-    "title": "增加新记录",
-    "subtitle": "字段列表和 VALUES 一一对应",
+    "title": "Add new records",
+    "subtitle": "Match the field list to VALUES",
     "minutes": 8,
     "keywords": [
       "INSERT INTO",
@@ -301,9 +301,9 @@ export const lessons = [
     "dataset": "campus",
     "example": "INSERT INTO CLUB (ClubID, ClubName, Room)\nVALUES ('C05', 'Photography', 'D10');",
     "body": [
-      "INSERT INTO 增加记录。写出字段列表能明确每个值的含义；VALUES 中的顺序必须与字段列表对应。",
-      "文字、日期和时刻使用合适的引号，数字与 TRUE/FALSE 按各自类型输入。主键不能与已有记录冲突，外键值必须指向已有记录。",
-      "提交后不仅检查新记录出现，还要确认旧数据没有改变。每道练习从独立的初始数据开始。"
+      "INSERT INTO adds records. An explicit field list identifies the purpose of each value. The VALUES order must match the field-list order.",
+      "Quote text, dates and times appropriately. Enter numbers and TRUE/FALSE according to their types. Primary keys must be unique and foreign-key values must reference existing records.",
+      "After inserting, check both the new record and the unchanged existing data. Each exercise starts from its own initial dataset."
     ],
     "exerciseIds": [
       "as-insert-club",
@@ -314,8 +314,8 @@ export const lessons = [
   {
     "id": "as-update",
     "level": "as",
-    "title": "更新指定记录",
-    "subtitle": "SET 修改值，WHERE 限定目标",
+    "title": "Update selected records",
+    "subtitle": "SET changes values; WHERE selects records",
     "minutes": 9,
     "keywords": [
       "UPDATE",
@@ -325,9 +325,9 @@ export const lessons = [
     "dataset": "library",
     "example": "UPDATE BOOK\nSET Stock = 10\nWHERE BookID = 202;",
     "body": [
-      "UPDATE 表名后用 SET 指定新值，再用 WHERE 找到要修改的记录。只改一条记录时，唯一主键常是最清晰的条件。",
-      "可以用逗号分隔多个字段更新。查询条件与更新内容承担不同角色：WHERE 找记录，SET 改字段。",
-      "漏掉 WHERE 会影响整张表。先用相同条件 SELECT 查看目标，再执行更新，是理解影响范围的好习惯。"
+      "Use UPDATE table_name, SET for new values, and WHERE to select the records to change. A unique primary key is often the clearest way to target one record.",
+      "Separate multiple field assignments with commas. WHERE identifies records and SET assigns values to their fields.",
+      "Omitting WHERE affects the entire table. Use SELECT with the same condition to inspect the target records before updating them."
     ],
     "exerciseIds": [
       "as-update-stock",
@@ -338,8 +338,8 @@ export const lessons = [
   {
     "id": "as-delete",
     "level": "as",
-    "title": "删除符合条件的记录",
-    "subtitle": "DELETE FROM 保留表结构",
+    "title": "Delete matching records",
+    "subtitle": "DELETE FROM preserves the table structure",
     "minutes": 8,
     "keywords": [
       "DELETE FROM",
@@ -348,9 +348,9 @@ export const lessons = [
     "dataset": "library",
     "example": "DELETE FROM BOOK\nWHERE Stock = 0;",
     "body": [
-      "DELETE FROM 删除满足 WHERE 的记录，表和字段定义仍然存在。它与删去某一列、把某字段设为零是不同操作。",
-      "条件要表达完整意图，例如既属于指定类别又库存为零。只写其中一个条件可能删掉仍需保留的数据。",
-      "有关联约束时，删除被其他表引用的记录可能失败。本课在独立沙盒中练习；重置会恢复原始数据。"
+      "DELETE FROM removes records matching WHERE while retaining the table and its field definitions. Deleting a row differs from removing a column or setting a field to zero.",
+      "Express the complete condition, such as belonging to a given genre and having zero stock. Omitting either part may delete records that should remain.",
+      "A foreign-key constraint can prevent deletion of a referenced record. Practise in the local sandbox and reset to restore the original data."
     ],
     "exerciseIds": [
       "as-delete-one",
@@ -361,8 +361,8 @@ export const lessons = [
   {
     "id": "as-group",
     "level": "as",
-    "title": "按类别生成统计",
-    "subtitle": "AVG 与 GROUP BY",
+    "title": "Summarise by category",
+    "subtitle": "AVG and GROUP BY",
     "minutes": 11,
     "keywords": [
       "AVG",
@@ -374,9 +374,9 @@ export const lessons = [
     "dataset": "library",
     "example": "SELECT Genre, SUM(Stock) AS TotalStock\nFROM BOOK\nGROUP BY Genre\nORDER BY Genre;",
     "body": [
-      "AVG 求数字字段平均值。GROUP BY 把相同类别的记录分组，每组分别计算 SUM、COUNT 或 AVG。",
-      "选择分组字段和聚合结果时，普通字段应列在 GROUP BY 中。例如按 Genre 分组后，不能任意附上一条书名。",
-      "AS 为结果列提供有意义的名称。聚合别名方便阅读，不会重命名原表字段。WHERE 在分组之前筛选参与记录。"
+      "AVG calculates the mean of numeric values. GROUP BY collects records with the same category and calculates SUM, COUNT or AVG separately for each group.",
+      "When selecting grouped fields and aggregates, include the ordinary fields in GROUP BY. After grouping by Genre, an arbitrary book title would not identify the whole group.",
+      "AS gives a result column a meaningful heading while preserving the source field name. WHERE filters the participating records before grouping."
     ],
     "exerciseIds": [
       "as-average",
@@ -387,8 +387,8 @@ export const lessons = [
   {
     "id": "as-like",
     "level": "as",
-    "title": "按文字模式查找",
-    "subtitle": "LIKE 与 % 表达不完整线索",
+    "title": "Search with text patterns",
+    "subtitle": "Use LIKE and % for partial matches",
     "minutes": 9,
     "keywords": [
       "LIKE",
@@ -398,9 +398,9 @@ export const lessons = [
     "dataset": "library",
     "example": "SELECT Title\nFROM BOOK\nWHERE Title LIKE '%Code%';",
     "body": [
-      "LIKE 用模式匹配文字，% 表示零个或多个字符。'River%' 表示以 River 开头，'%Garden' 表示以 Garden 结束。",
-      "包含某段文字时，模式两侧都放 %。模式本身是文字值，要加引号；等号比较完整值，不把 % 当通配符。",
-      "本课使用 % 作为默认模式写法。历史题中的其他通配符写法只在有具体来源和工具支持时兼容，不能随意混用不同数据库方言。"
+      "LIKE matches text against a pattern. % represents zero or more characters. 'River%' matches text starting with River; '%Garden' matches text ending in Garden.",
+      "To find text anywhere in a value, put % on both sides. Quote the pattern as a text value. Equality compares the whole value and treats % as an ordinary character.",
+      "These lessons use % as the default wildcard. Other historical spellings are accepted only where supported and documented in the source evidence. Keep each query's wildcard convention consistent."
     ],
     "exerciseIds": [
       "as-like-prefix",
@@ -411,8 +411,8 @@ export const lessons = [
   {
     "id": "as-join",
     "level": "as",
-    "title": "连接两张关联表",
-    "subtitle": "INNER JOIN 与键的匹配",
+    "title": "Join related tables",
+    "subtitle": "Match keys with INNER JOIN",
     "minutes": 13,
     "keywords": [
       "INNER JOIN",
@@ -423,9 +423,9 @@ export const lessons = [
     "dataset": "shop",
     "example": "SELECT CUSTOMER.CustomerName, ORDERS.OrderID, ORDERS.Total\nFROM CUSTOMER\nINNER JOIN ORDERS ON CUSTOMER.CustomerID = ORDERS.CustomerID\nWHERE ORDERS.Paid = TRUE;",
     "body": [
-      "INNER JOIN 只组合连接条件匹配的记录。一个客户有多张订单，就会在连接结果中出现多次；没有订单的客户不会出现在内连接结果中。",
-      "用 表名.字段名 消除歧义，尤其是两表都有 CustomerID 时。ON 表达关联键条件，WHERE 再筛选已关联的记录。",
-      "9618 查询范围最多两张表。本课把连接与排序、计数、求和结合，检查键是否正确以及是否遗漏筛选条件。"
+      "INNER JOIN combines records that satisfy the join condition. A customer with several orders appears several times in the joined result. A customer with no matching orders is excluded.",
+      "Use table_name.field_name to identify fields clearly, especially when both tables contain CustomerID. ON states the key relationship; WHERE filters the joined records.",
+      "9618 queries involve at most two tables. Combine joins with sorting, counting and totals, checking both the matching keys and the filter conditions."
     ],
     "exerciseIds": [
       "as-join-clubs",
@@ -445,9 +445,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-fields",
     "lessonId": "ig-foundations",
-    "title": "分清字段与记录",
+    "title": "Fields and records",
     "prompt": "The STUDENT table has eight data rows and seven named columns. How many records and fields does it contain?",
-    "brief": "表头不算记录；一名学生占一行。",
+    "brief": "A heading describes a field; each student occupies one data row.",
     "dataset": "campus",
     "options": [
       "8 records and 7 fields",
@@ -457,13 +457,13 @@ export const exercises = [
     ],
     "answer": 0,
     "hints": [
-      "先把行和列分开。",
-      "每一条数据行对应一条记录。",
-      "8 条数据行是 8 条记录；7 个列名对应 7 个字段。"
+      "First distinguish rows from columns.",
+      "Each data row represents one record.",
+      "8 data rows give 8 records; 7 column headings give 7 fields."
     ],
-    "explanation": "记录是行，字段是列；表头描述字段，不是第九名学生。",
+    "explanation": "Records are rows and fields are columns. The header describes the fields; the data contains 8 students.",
     "objectives": [
-      "区分字段与记录"
+      "Distinguish fields and records"
     ]
   },
   {
@@ -475,9 +475,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-key",
     "lessonId": "ig-foundations",
-    "title": "选一个可靠的主键",
+    "title": "Choose a reliable primary key",
     "prompt": "Which field is the most suitable primary key for STUDENT, given that StudentID is unique and never reused?",
-    "brief": "姓名、分院和分数都可能重复。",
+    "brief": "Names, houses and scores can all be repeated.",
     "dataset": "campus",
     "options": [
       "StudentID",
@@ -487,13 +487,13 @@ export const exercises = [
     ],
     "answer": 0,
     "hints": [
-      "主键必须区分每一条记录。",
-      "名字相同的学生仍然是两个人。",
-      "题目保证 StudentID 唯一且不会被重新分配。"
+      "A primary key must identify each record uniquely.",
+      "Students with the same name are still different people.",
+      "The question guarantees that StudentID is unique and is never reassigned."
     ],
-    "explanation": "StudentID 满足给定唯一性条件。仅因为当前样本的姓名没有重复，不能保证姓名始终适合主键。",
+    "explanation": "StudentID satisfies the stated uniqueness requirement. Names that happen to be unique in a sample may be repeated in future records.",
     "objectives": [
-      "选择主键"
+      "Choose a primary key"
     ]
   },
   {
@@ -505,9 +505,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-type",
     "lessonId": "ig-foundations",
-    "title": "是否活跃用什么类型",
+    "title": "Choose a type for active status",
     "prompt": "Active stores only whether a student is active or inactive. Which data type best describes this field?",
-    "brief": "只存在两种状态。",
+    "brief": "There are exactly two possible states.",
     "dataset": "campus",
     "options": [
       "Boolean",
@@ -517,13 +517,13 @@ export const exercises = [
     ],
     "answer": 0,
     "hints": [
-      "考虑字段的含义，不只看屏幕上的 1 和 0。",
-      "这个字段只有真与假两种情况。",
-      "Boolean 专门表示两种真假状态。"
+      "Consider what the field means, rather than just its displayed 1 and 0 values.",
+      "The field represents either true or false.",
+      "Boolean is designed to represent true and false states."
     ],
-    "explanation": "Active 在表结构中声明为 BOOLEAN。界面用 1/0 展示存储值，语义仍然是 TRUE/FALSE。",
+    "explanation": "Active is declared as BOOLEAN. The interface displays the stored values as 1/0, representing TRUE/FALSE.",
     "objectives": [
-      "识别布尔类型"
+      "Identify Boolean data"
     ]
   },
   {
@@ -535,9 +535,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-select-names",
     "lessonId": "ig-select",
-    "title": "制作分院名单",
+    "title": "Create a house list",
     "prompt": "Display only Name and House, in that order, for every student.",
-    "brief": "不用筛选，选择两列即可。",
+    "brief": "Select two columns and include every record.",
     "dataset": "campus",
     "solution": "SELECT Name, House FROM STUDENT;",
     "checks": [
@@ -546,15 +546,15 @@ export const exercises = [
       }
     ],
     "hints": [
-      "先决定输出字段。",
-      "字段间使用逗号；表名是 STUDENT。",
-      "SELECT 后写 Name, House，FROM 后写 STUDENT。"
+      "Decide which fields to display first.",
+      "Separate fields with a comma. The table is STUDENT.",
+      "Write Name, House after SELECT and STUDENT after FROM."
     ],
-    "explanation": "SELECT 决定结果列；没有 WHERE 时读取所有学生记录。",
+    "explanation": "SELECT determines the result columns. Omitting WHERE includes all student records.",
     "objectives": [
       "SELECT",
       "FROM",
-      "字段列表"
+      "Field list"
     ]
   },
   {
@@ -566,9 +566,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-select-books",
     "lessonId": "ig-select",
-    "title": "制作书价清单",
+    "title": "Create a book price list",
     "prompt": "Display only Title and Price$, in that order, for all books.",
-    "brief": "Price$ 是完整字段名，包含美元符号。",
+    "brief": "Price$ is the full field name, including the dollar sign.",
     "dataset": "library",
     "solution": "SELECT Title, Price$ FROM BOOK;",
     "checks": [
@@ -577,14 +577,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "查看 BOOK 的字段名称。",
-      "单价字段不是 Price，而是 Price$。",
-      "SELECT Title, Price$ 后接 FROM BOOK。"
+      "Check the field names in BOOK.",
+      "The price field is named Price$.",
+      "Write SELECT Title, Price$ followed by FROM BOOK."
     ],
-    "explanation": "真实题面可能含 Price$ 这类字段名；应精确使用给定标识符。",
+    "explanation": "Exam questions may use field names such as Price$. Use each identifier exactly as given.",
     "objectives": [
-      "精确标识符",
-      "选择字段"
+      "Exact identifiers",
+      "Select fields"
     ]
   },
   {
@@ -596,9 +596,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-select-customers",
     "lessonId": "ig-select",
-    "title": "导出客户所在地",
+    "title": "List customer locations",
     "prompt": "Display only CustomerName and City, in that order, for all customers.",
-    "brief": "本题只使用 CUSTOMER 一张表。",
+    "brief": "Use the CUSTOMER table for this task.",
     "dataset": "shop",
     "solution": "SELECT CustomerName, City FROM CUSTOMER;",
     "checks": [
@@ -607,13 +607,13 @@ export const exercises = [
       }
     ],
     "hints": [
-      "需要的是客户资料，不是订单。",
-      "FROM 指向 CUSTOMER。",
-      "输出列是 CustomerName, City。"
+      "You need customer details from CUSTOMER.",
+      "FROM should name CUSTOMER.",
+      "The output columns are CustomerName, City."
     ],
-    "explanation": "一个数据库可以有多张表，单表查询只从 FROM 指定的表读取数据。",
+    "explanation": "A database can contain several tables. A single-table query reads the table named in FROM.",
     "objectives": [
-      "选择正确数据表"
+      "Choose the correct table"
     ]
   },
   {
@@ -625,9 +625,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-where-house",
     "lessonId": "ig-where",
-    "title": "找到 Cedar 学生",
+    "title": "Find students in Cedar",
     "prompt": "Display only StudentID and Name for students whose House is Cedar.",
-    "brief": "Cedar 是文字值，需要引号。",
+    "brief": "Cedar is a text value, so enclose it in quotes.",
     "dataset": "campus",
     "solution": "SELECT StudentID, Name FROM STUDENT WHERE House = 'Cedar';",
     "checks": [
@@ -636,13 +636,13 @@ export const exercises = [
       }
     ],
     "hints": [
-      "筛选条件放在 WHERE。",
-      "条件字段是 House，而不是 Name。",
-      "使用 House = 'Cedar'。"
+      "Put the filter condition in WHERE.",
+      "The condition uses the House field.",
+      "Use House = 'Cedar'."
     ],
-    "explanation": "筛选字段不必成为输出字段。本题输出编号和姓名，用 House 决定是否保留记录。",
+    "explanation": "A filtering field can be omitted from the output. Display the ID and name, and use House to decide which records to keep.",
     "objectives": [
-      "文字等值筛选"
+      "Filter by text equality"
     ]
   },
   {
@@ -654,9 +654,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-where-score",
     "lessonId": "ig-where",
-    "title": "找出达到 80 分的人",
+    "title": "Find scores of at least 80",
     "prompt": "Display only Name and Score for students with a score of at least 80.",
-    "brief": "“至少 80”包含恰好 80。",
+    "brief": "At least 80 includes a score of exactly 80.",
     "dataset": "campus",
     "solution": "SELECT Name, Score FROM STUDENT WHERE Score >= 80;",
     "checks": [
@@ -665,14 +665,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "找出分数字段。",
-      "至少表示大于或等于。",
-      "WHERE Score >= 80 会包含边界分数。"
+      "Find the field that stores the score.",
+      "At least means greater than or equal to.",
+      "WHERE Score >= 80 includes the boundary value."
     ],
-    "explanation": "使用 > 会遗漏恰好 80 分的学生；额外检查数据包含边界值，防止偶然通过。",
+    "explanation": "Using > would exclude a score of exactly 80. Additional test data checks this boundary.",
     "objectives": [
       ">=",
-      "边界值"
+      "Boundary values"
     ]
   },
   {
@@ -684,9 +684,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-where-boolean",
     "lessonId": "ig-where",
-    "title": "列出没有电子版的书",
+    "title": "Find books without a digital edition",
     "prompt": "Display only BookID and Title for books where Digital is false.",
-    "brief": "Digital 是 Boolean 字段。",
+    "brief": "Digital is a Boolean field.",
     "dataset": "library",
     "solution": "SELECT BookID, Title FROM BOOK WHERE Digital = FALSE;",
     "checks": [
@@ -695,13 +695,13 @@ export const exercises = [
       }
     ],
     "hints": [
-      "先找到表示电子版的字段。",
-      "FALSE 表示没有电子版。",
-      "WHERE Digital = FALSE 之后只保留两列输出。"
+      "Find the field that indicates a digital edition.",
+      "FALSE means there is no digital edition.",
+      "Use WHERE Digital = FALSE and display only the two requested columns."
     ],
-    "explanation": "布尔字段表达真假，显式 TRUE/FALSE 比较清晰地说明查询意图。",
+    "explanation": "Boolean fields represent true or false. An explicit TRUE/FALSE comparison makes the condition clear.",
     "objectives": [
-      "布尔筛选"
+      "Boolean filtering"
     ]
   },
   {
@@ -713,9 +713,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-and-active",
     "lessonId": "ig-logic",
-    "title": "筛出活跃高分学生",
+    "title": "Find active high scorers",
     "prompt": "Display only Name for students who are active and have Score at least 80.",
-    "brief": "两个条件必须同时成立。",
+    "brief": "Both conditions must be true.",
     "dataset": "campus",
     "solution": "SELECT Name FROM STUDENT WHERE Active = TRUE AND Score >= 80;",
     "checks": [
@@ -724,14 +724,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "分别写活跃条件与分数条件。",
-      "两个条件之间用 AND。",
+      "Write a condition for active status and another for the score.",
+      "Join the conditions with AND.",
       "Active = TRUE AND Score >= 80。"
     ],
-    "explanation": "Chen 分数很高但不活跃，所以不能入选；AND 要求两边都满足。",
+    "explanation": "Chen has a high score but is inactive. AND requires both conditions to be satisfied.",
     "objectives": [
       "AND",
-      "复合条件"
+      "Combined conditions"
     ]
   },
   {
@@ -743,9 +743,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-or-houses",
     "lessonId": "ig-logic",
-    "title": "合并两个分院的名单",
+    "title": "Combine two house lists",
     "prompt": "Display only Name and House for students in either Maple or Willow.",
-    "brief": "属于任一分院即可。",
+    "brief": "A student may belong to either house.",
     "dataset": "campus",
     "solution": "SELECT Name, House FROM STUDENT WHERE House = 'Maple' OR House = 'Willow';",
     "checks": [
@@ -754,14 +754,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "同一个学生不需要同时属于两个分院。",
-      "使用 OR，把两次比较都写完整。",
+      "A student only needs to belong to one of the two houses.",
+      "Use OR and write both comparisons in full.",
       "House = 'Maple' OR House = 'Willow'。"
     ],
-    "explanation": "OR 保留至少满足一个条件的记录。重复写 House 能清楚表达两个完整条件。",
+    "explanation": "OR keeps records satisfying at least one condition. Repeat House to form two complete comparisons.",
     "objectives": [
       "OR",
-      "文字条件"
+      "Text conditions"
     ]
   },
   {
@@ -773,9 +773,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-and-stock",
     "lessonId": "ig-logic",
-    "title": "找出便宜且有库存的书",
+    "title": "Find affordable books in stock",
     "prompt": "Display only Title and Price$ for books costing less than 15 with Stock not equal to 0.",
-    "brief": "同时检查价格与库存；不等于用 <>。",
+    "brief": "Check both price and stock. Use <> for not equal to.",
     "dataset": "library",
     "solution": "SELECT Title, Price$ FROM BOOK WHERE Price$ < 15 AND Stock <> 0;",
     "checks": [
@@ -784,11 +784,11 @@ export const exercises = [
       }
     ],
     "hints": [
-      "低于 15 使用 <，不是 <=。",
-      "非零库存使用 <> 0。",
-      "把 Price$ < 15 和 Stock <> 0 用 AND 连接。"
+      "Less than 15 uses <.",
+      "Use <> 0 for non-zero stock.",
+      "Join Price$ < 15 and Stock <> 0 with AND."
     ],
-    "explanation": "便宜但缺货的书不符合要求，恰好 15 的书也不符合“less than”。",
+    "explanation": "A cheap book with no stock is excluded. A price of exactly 15 is also excluded by less than.",
     "objectives": [
       "<",
       "<>",
@@ -804,9 +804,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-sort-price",
     "lessonId": "ig-sort",
-    "title": "最贵的书排在前面",
+    "title": "Show the most expensive books first",
     "prompt": "Display Title and Price$ for all books, ordered from highest price to lowest.",
-    "brief": "价格递减排列。",
+    "brief": "Sort prices in descending order.",
     "dataset": "library",
     "solution": "SELECT Title, Price$ FROM BOOK ORDER BY Price$ DESCENDING;",
     "checks": [
@@ -815,11 +815,11 @@ export const exercises = [
       }
     ],
     "hints": [
-      "排序使用 ORDER BY。",
-      "从高到低是递减。",
-      "在 Price$ 后指定 DESCENDING。"
+      "Use ORDER BY to sort.",
+      "Highest to lowest is descending order.",
+      "Put DESCENDING after Price$."
     ],
-    "explanation": "ORDER BY 改变结果行次序，不会更改原表中任何价格。",
+    "explanation": "ORDER BY changes the order of result rows while leaving stored prices unchanged.",
     "objectives": [
       "ORDER BY",
       "DESCENDING"
@@ -834,9 +834,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-sort-title",
     "lessonId": "ig-sort",
-    "title": "按书名建立索引",
+    "title": "List books by title",
     "prompt": "Display only Title for all books in ascending alphabetical order.",
-    "brief": "按书名递增，只显示书名。",
+    "brief": "Display titles in ascending order.",
     "dataset": "library",
     "solution": "SELECT Title FROM BOOK ORDER BY Title ASCENDING;",
     "checks": [
@@ -845,14 +845,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "结果只有一列。",
-      "排序字段也是 Title。",
+      "The result has one column.",
+      "Title is also the sorting field.",
       "ORDER BY Title ASCENDING。"
     ],
-    "explanation": "文字排序与数值排序使用相同子句；省略方向时默认递增。",
+    "explanation": "Text and numbers use the same sorting clause. The default direction is ascending.",
     "objectives": [
       "ASCENDING",
-      "文字排序"
+      "Sort text"
     ]
   },
   {
@@ -864,9 +864,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-sort-hidden",
     "lessonId": "ig-sort",
-    "title": "只显示姓名，按成绩排列",
+    "title": "Show names in score order",
     "prompt": "Display only Name for YearGroup 10, ordered by Score from lowest to highest.",
-    "brief": "Score 用于排序，但不要输出分数。",
+    "brief": "Use Score for sorting and display only names.",
     "dataset": "campus",
     "solution": "SELECT Name FROM STUDENT WHERE YearGroup = 10 ORDER BY Score ASCENDING;",
     "checks": [
@@ -875,14 +875,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "先筛选 10 年级。",
-      "SELECT 只保留 Name。",
-      "WHERE 后再写 ORDER BY Score ASCENDING。"
+      "Filter for YearGroup 10 first.",
+      "SELECT should contain only Name.",
+      "Write ORDER BY Score ASCENDING after WHERE."
     ],
-    "explanation": "排序字段不必出现在结果里；SELECT、WHERE 和 ORDER BY 各自承担不同职责。",
+    "explanation": "A sorting field can be omitted from the output. SELECT, WHERE and ORDER BY each have a separate role.",
     "objectives": [
-      "筛选后排序",
-      "未输出字段排序"
+      "Filter then sort",
+      "Sort by a hidden field"
     ]
   },
   {
@@ -894,9 +894,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-sum-stock",
     "lessonId": "ig-aggregate",
-    "title": "计算计算机类总库存",
+    "title": "Total the computing book stock",
     "prompt": "Return one value: the total Stock of books whose Genre is Computing.",
-    "brief": "统计本数总量，不是书种数量。",
+    "brief": "Add the number of copies across computing titles.",
     "dataset": "library",
     "solution": "SELECT SUM(Stock) FROM BOOK WHERE Genre = 'Computing';",
     "checks": [
@@ -905,14 +905,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "需要把库存数字相加。",
-      "使用 SUM(Stock)。",
-      "先在 WHERE 中限定 Genre = 'Computing'。"
+      "Add together the stock values.",
+      "Use SUM(Stock).",
+      "Filter with Genre = 'Computing' in WHERE first."
     ],
-    "explanation": "初始数据中 8、5、4 本合计 17 本；COUNT 只会数出 3 种书。",
+    "explanation": "The initial stock values 8, 5 and 4 total 17 copies. COUNT would count the 3 titles.",
     "objectives": [
       "SUM",
-      "聚合前筛选"
+      "Filter before aggregation"
     ]
   },
   {
@@ -924,9 +924,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-count-active",
     "lessonId": "ig-aggregate",
-    "title": "统计活跃学生人数",
+    "title": "Count active students",
     "prompt": "Return one value: the number of active students.",
-    "brief": "每名学生一条记录，用唯一编号计数。",
+    "brief": "Each student has one record. Count the unique IDs.",
     "dataset": "campus",
     "solution": "SELECT COUNT(StudentID) FROM STUDENT WHERE Active = TRUE;",
     "checks": [
@@ -935,11 +935,11 @@ export const exercises = [
       }
     ],
     "hints": [
-      "求人数用 COUNT。",
-      "StudentID 每条记录都有值。",
-      "COUNT(StudentID) 配合 Active = TRUE。"
+      "Use COUNT to find the number of students.",
+      "Every StudentID has a value.",
+      "Combine COUNT(StudentID) with Active = TRUE."
     ],
-    "explanation": "COUNT 统计符合条件的学生记录。初始数据有 5 名活跃学生。",
+    "explanation": "COUNT counts the matching student records. The initial data contains 5 active students.",
     "objectives": [
       "COUNT",
       "Boolean"
@@ -954,9 +954,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-sum-unpaid",
     "lessonId": "ig-aggregate",
-    "title": "合计尚未支付的金额",
+    "title": "Total unpaid order amounts",
     "prompt": "Return one value: the sum of Total for all orders where Paid is false.",
-    "brief": "只计算未支付订单金额。",
+    "brief": "Add the amounts of unpaid orders only.",
     "dataset": "shop",
     "solution": "SELECT SUM(Total) FROM ORDERS WHERE Paid = FALSE;",
     "checks": [
@@ -965,14 +965,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "订单金额字段是 Total。",
-      "总金额应使用 SUM，不是 COUNT。",
-      "在 ORDERS 中用 Paid = FALSE 筛选。"
+      "Total stores the order amount.",
+      "Use SUM to calculate the total amount.",
+      "Filter ORDERS with Paid = FALSE."
     ],
-    "explanation": "初始未支付金额为 20 + 35 + 55 = 110，新增订单后答案应随数据变化。",
+    "explanation": "The initial unpaid total is 20 + 35 + 55 = 110. The query should also work when new orders are added.",
     "objectives": [
       "SUM",
-      "布尔筛选"
+      "Boolean filtering"
     ]
   },
   {
@@ -984,22 +984,22 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-predict-score",
     "lessonId": "ig-read",
-    "title": "预测高分榜",
+    "title": "Predict the high-score list",
     "prompt": "Write the output of the SQL below as CSV rows, without a header.",
-    "brief": "每行按 Name,Score 顺序，使用逗号分隔。",
+    "brief": "Write each row as Name,Score, separated by a comma.",
     "dataset": "campus",
     "solution": "SELECT Name, Score FROM STUDENT WHERE Score >= 80 ORDER BY Score DESCENDING;",
     "expected": "Chen,92\nGrace,88\nDina,84",
     "hints": [
-      "先找出达到 80 分的三条记录。",
-      "分数从高到低为 92、88、84。",
-      "每行只写姓名和分数，不写表头。"
+      "Find the three records with scores of at least 80.",
+      "The scores in descending order are 92, 88 and 84.",
+      "Write only the name and score on each line, with no header."
     ],
-    "explanation": "筛选后按分数递减排列，输出 Chen、Grace、Dina 的姓名和分数。",
+    "explanation": "Filter, then sort by score descending to display Chen, Grace and Dina with their scores.",
     "objectives": [
-      "输出预测",
-      "筛选",
-      "排序"
+      "Predict output",
+      "Filtering",
+      "Sorting"
     ]
   },
   {
@@ -1011,21 +1011,21 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-predict-zero",
     "lessonId": "ig-read",
-    "title": "预测缺货清单",
+    "title": "Predict the out-of-stock list",
     "prompt": "Write the output of the SQL below as CSV rows, without a header.",
-    "brief": "每行按 Title,Stock 顺序；保留书名中的空格。",
+    "brief": "Write each row as Title,Stock. Keep the spaces in book titles.",
     "dataset": "library",
     "solution": "SELECT Title, Stock FROM BOOK WHERE Stock = 0 ORDER BY Title;",
     "expected": "Ocean Maps,0\nPaper Moon,0",
     "hints": [
-      "库存为 0 的书有两种。",
-      "按书名递增，Ocean 在 Paper 之前。",
-      "两行的第二列都为 0。"
+      "Two books have a stock value of 0.",
+      "In ascending title order, Ocean comes before Paper.",
+      "The second column is 0 in both rows."
     ],
-    "explanation": "ORDER BY Title 没有方向时按递增排列；不能把所有书名都输出。",
+    "explanation": "ORDER BY Title defaults to ascending order. Include only the books that match the filter.",
     "objectives": [
-      "输出预测",
-      "默认排序"
+      "Predict output",
+      "Default sort order"
     ]
   },
   {
@@ -1037,20 +1037,20 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-predict-count",
     "lessonId": "ig-read",
-    "title": "预测聚合结果",
+    "title": "Predict an aggregate result",
     "prompt": "Write the single value returned by the SQL below.",
-    "brief": "聚合输出只有一个数字，不列出书名。",
+    "brief": "The aggregate returns a single number.",
     "dataset": "library",
     "solution": "SELECT COUNT(BookID) FROM BOOK WHERE Digital = TRUE;",
     "expected": "4",
     "hints": [
-      "先找出 Digital 为真的记录。",
-      "BookID 201、203、204、207 都符合。",
-      "统计这些记录的数量。"
+      "Find the records where Digital is true.",
+      "BookID values 201, 203, 204 and 207 match.",
+      "Count those records."
     ],
-    "explanation": "COUNT 返回记录数量 4，不是它们的库存总和。",
+    "explanation": "COUNT returns 4 matching records. SUM would add their stock values.",
     "objectives": [
-      "COUNT 输出预测"
+      "Predict COUNT output"
     ]
   },
   {
@@ -1062,9 +1062,9 @@ export const exercises = [
     "minutes": 3,
     "id": "ig-concept-clauses",
     "lessonId": "ig-read",
-    "title": "辨认三个子句的职责",
+    "title": "Identify the roles of three clauses",
     "prompt": "Which description correctly explains SELECT, FROM and WHERE?",
-    "brief": "把输出字段、数据表和筛选条件区分开。",
+    "brief": "Distinguish output fields, source tables and filter conditions.",
     "dataset": "campus",
     "options": [
       "SELECT chooses fields; FROM identifies the table; WHERE filters records.",
@@ -1074,13 +1074,13 @@ export const exercises = [
     ],
     "answer": 0,
     "hints": [
-      "SELECT 后面通常列出字段名。",
-      "FROM 后面通常只有表名或连接来源。",
-      "WHERE 后面写条件来决定保留哪些记录。"
+      "SELECT usually lists field names.",
+      "FROM names the source table or joined tables.",
+      "WHERE contains conditions that determine which records to keep."
     ],
-    "explanation": "理解子句职责能帮助定位错误：错误的列看 SELECT，错误的数据源看 FROM，错误的记录看 WHERE。",
+    "explanation": "Use each clause's role to locate mistakes: check SELECT for wrong columns, FROM for the wrong source, and WHERE for wrong records.",
     "objectives": [
-      "SQL 子句作用"
+      "Roles of SQL clauses"
     ]
   },
   {
@@ -1092,9 +1092,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-type-amount",
     "lessonId": "as-types",
-    "title": "给测量值选择类型",
+    "title": "Choose a type for measurements",
     "prompt": "A field stores a measured distance such as 2.75 metres. Which type from the course list is most suitable?",
-    "brief": "需要保留小数部分。",
+    "brief": "The fractional part must be preserved.",
     "dataset": "campus",
     "options": [
       "REAL",
@@ -1104,14 +1104,14 @@ export const exercises = [
     ],
     "answer": 0,
     "hints": [
-      "整数类型不能保留 0.75。",
-      "这不是日期，也不是真假状态。",
-      "REAL 用于带小数的数值。"
+      "An integer type cannot preserve 0.75.",
+      "The value is a measurement with a fractional part.",
+      "REAL stores numeric values with fractional parts."
     ],
-    "explanation": "REAL 表示实数。INTEGER 适用于完整数量，但会丢失或拒绝该小数信息。",
+    "explanation": "REAL represents real numbers. INTEGER is appropriate for whole quantities and cannot represent this fractional value exactly.",
     "objectives": [
       "REAL",
-      "数据类型"
+      "Data types"
     ]
   },
   {
@@ -1123,9 +1123,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-type-time",
     "lessonId": "as-types",
-    "title": "区分日期与时刻",
+    "title": "Distinguish dates and times",
     "prompt": "A field records the time of day at which a visit begins, such as 09:30:00. Which type is most suitable?",
-    "brief": "这里只存一天中的时刻，不存年月日。",
+    "brief": "Store the time of day, without a year, month or day.",
     "dataset": "campus",
     "options": [
       "TIME",
@@ -1135,11 +1135,11 @@ export const exercises = [
     ],
     "answer": 0,
     "hints": [
-      "例子包含小时、分钟和秒。",
-      "DATE 记录年月日。",
-      "TIME 表示一天中的时刻。"
+      "The example contains hours, minutes and seconds.",
+      "DATE stores a year, month and day.",
+      "TIME represents a time of day."
     ],
-    "explanation": "DATE 与 TIME 是不同类型；根据字段含义选择，而不是把所有日期时间信息都当作文字。",
+    "explanation": "DATE and TIME are separate types. Choose the type that matches the meaning of the field.",
     "objectives": [
       "TIME",
       "DATE"
@@ -1154,9 +1154,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-create-types",
     "lessonId": "as-types",
-    "title": "创建访客登记结构",
+    "title": "Create a visitor register",
     "prompt": "Create VISIT with these fields in this order: VisitID INTEGER, Badge CHARACTER, Visitor VARCHAR(40), Consent BOOLEAN, Score REAL, VisitDate DATE, VisitTime TIME. Do not add a key or records.",
-    "brief": "按给定名称、类型和长度建表；Badge 保存一个字符。",
+    "brief": "Use the specified names, types and lengths. Badge stores one character.",
     "dataset": "campus",
     "schemaCheck": true,
     "focusTables": [
@@ -1164,14 +1164,14 @@ export const exercises = [
     ],
     "solution": "CREATE TABLE VISIT (VisitID INTEGER, Badge CHARACTER, Visitor VARCHAR(40), Consent BOOLEAN, Score REAL, VisitDate DATE, VisitTime TIME);",
     "hints": [
-      "CREATE TABLE 后写 VISIT 和括号。",
-      "每个字段由名字及类型组成，字段间加逗号。",
-      "共有 7 个字段；Visitor 的最大长度是 40。"
+      "Write VISIT and an opening parenthesis after CREATE TABLE.",
+      "Define each field with a name and type. Separate definitions with commas.",
+      "There are 7 fields. Visitor has a maximum length of 40."
     ],
-    "explanation": "本题把七种课程类型放在同一个新表中。只定义结构，不需要 INSERT。",
+    "explanation": "This task uses all seven syllabus data types in one new table. Define the structure with CREATE TABLE.",
     "objectives": [
       "CREATE TABLE",
-      "七种数据类型"
+      "Seven data types"
     ]
   },
   {
@@ -1183,19 +1183,19 @@ export const exercises = [
     "minutes": 4,
     "id": "as-create-database",
     "lessonId": "as-create",
-    "title": "建立独立数据库",
+    "title": "Create a separate database",
     "prompt": "Create a new database named RevisionHub.",
-    "brief": "执行后进入一个新的空白练习数据库。",
+    "brief": "The command opens a new empty practice database.",
     "dataset": "campus",
     "schemaCheck": true,
     "focusTables": [],
     "solution": "CREATE DATABASE RevisionHub;",
     "hints": [
-      "数据库不是一张表。",
-      "使用 CREATE DATABASE。",
-      "命名为 RevisionHub，不需要字段列表。"
+      "A database contains tables.",
+      "Use CREATE DATABASE.",
+      "Name the database RevisionHub. This command takes a database name."
     ],
-    "explanation": "CREATE DATABASE 定义新的数据库。本工具用独立沙盒模拟这一操作，并检查数据库名称。",
+    "explanation": "CREATE DATABASE defines a new database. QueryPath models this with a separate sandbox and checks the database name.",
     "objectives": [
       "CREATE DATABASE"
     ]
@@ -1209,9 +1209,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-create-award",
     "lessonId": "as-create",
-    "title": "建立有主键的奖项表",
+    "title": "Create an awards table with a primary key",
     "prompt": "Create AWARD with AwardID INTEGER, AwardName VARCHAR(40), and Points INTEGER, in that order. Set AwardID as the primary key. Do not insert records.",
-    "brief": "主键保证奖项编号唯一；文字长度明确为 40。",
+    "brief": "The primary key makes AwardID unique. Set the text length to 40.",
     "dataset": "campus",
     "schemaCheck": true,
     "focusTables": [
@@ -1219,11 +1219,11 @@ export const exercises = [
     ],
     "solution": "CREATE TABLE AWARD (AwardID INTEGER, AwardName VARCHAR(40), Points INTEGER, PRIMARY KEY (AwardID));",
     "hints": [
-      "先写三个字段定义。",
-      "主键放在同一对括号内。",
-      "用 PRIMARY KEY (AwardID) 指定唯一标识。"
+      "Write the three field definitions first.",
+      "Place the primary-key definition inside the same parentheses.",
+      "Use PRIMARY KEY (AwardID) to declare the unique identifier."
     ],
-    "explanation": "表结构包含字段类型和约束。只写一个名字含 ID 的字段并不会自动把它变成主键。",
+    "explanation": "A table structure includes field types and constraints. Declare PRIMARY KEY explicitly to make an ID field the primary key.",
     "objectives": [
       "CREATE TABLE",
       "PRIMARY KEY"
@@ -1238,9 +1238,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-alter-email",
     "lessonId": "as-alter",
-    "title": "为学生增加邮箱字段",
+    "title": "Add an email field to students",
     "prompt": "Add Email VARCHAR(60) to STUDENT. Keep all existing fields and records.",
-    "brief": "修改现有表结构，不要重新创建空表。",
+    "brief": "Modify the structure of the existing table.",
     "dataset": "campus",
     "schemaCheck": true,
     "focusTables": [
@@ -1248,14 +1248,14 @@ export const exercises = [
     ],
     "solution": "ALTER TABLE STUDENT ADD Email VARCHAR(60);",
     "hints": [
-      "已有表使用 ALTER TABLE。",
-      "新增字段用 ADD。",
-      "字段名为 Email，类型为 VARCHAR(60)。"
+      "Use ALTER TABLE for an existing table.",
+      "Use ADD to add a field.",
+      "The field name is Email and the type is VARCHAR(60)."
     ],
-    "explanation": "添加字段后原记录保留；旧行的 Email 尚未赋值。本题验证结构和数据都保留。",
+    "explanation": "Adding a field preserves existing records. Email is initially unassigned for the old rows. The task checks both structure and data.",
     "objectives": [
       "ALTER TABLE",
-      "添加字段"
+      "Add a field"
     ]
   },
   {
@@ -1267,9 +1267,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-alter-two",
     "lessonId": "as-alter",
-    "title": "一次加入两个联系字段",
+    "title": "Add two contact fields at once",
     "prompt": "Add GuardianName VARCHAR(40) and GuardianPhone CHARACTER(12), in that order, to STUDENT. Keep all current records.",
-    "brief": "同一条 ALTER 中的两个新增字段用逗号分隔。",
+    "brief": "Separate the two new fields in the ALTER statement with a comma.",
     "dataset": "campus",
     "schemaCheck": true,
     "focusTables": [
@@ -1277,14 +1277,14 @@ export const exercises = [
     ],
     "solution": "ALTER TABLE STUDENT ADD GuardianName VARCHAR(40), GuardianPhone CHARACTER(12);",
     "hints": [
-      "用 ALTER TABLE STUDENT ADD 开始。",
-      "每个新字段都需要自己的类型。",
+      "Start with ALTER TABLE STUDENT ADD.",
+      "Each new field needs its own type.",
       "GuardianName VARCHAR(40), GuardianPhone CHARACTER(12)。"
     ],
-    "explanation": "这个课程兼容的 ALTER 形式可以一次添加多个字段，新增列的先后由定义顺序决定。",
+    "explanation": "This supported ALTER form adds several fields at once. Their definition order determines the new column order.",
     "objectives": [
       "ALTER TABLE",
-      "多字段添加"
+      "Add multiple fields"
     ]
   },
   {
@@ -1296,9 +1296,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-alter-primary",
     "lessonId": "as-alter",
-    "title": "给已有数据加主键",
+    "title": "Add a primary key to existing data",
     "prompt": "BADGE has been created without a key. Add a primary key on BadgeID and preserve its records.",
-    "brief": "系统已准备 BADGE；只需要添加约束。",
+    "brief": "BADGE is already prepared. Add the constraint.",
     "dataset": "campus",
     "setup": "CREATE TABLE BADGE (BadgeID INTEGER, Label VARCHAR(30)); INSERT INTO BADGE VALUES (1, 'Helper'), (2, 'Mentor');",
     "schemaCheck": true,
@@ -1307,14 +1307,14 @@ export const exercises = [
     ],
     "solution": "ALTER TABLE BADGE ADD PRIMARY KEY (BadgeID);",
     "hints": [
-      "目标是已有的 BADGE 表。",
-      "ADD 后定义 PRIMARY KEY。",
-      "PRIMARY KEY (BadgeID) 指定唯一字段。"
+      "The target is the existing BADGE table.",
+      "Define PRIMARY KEY after ADD.",
+      "PRIMARY KEY (BadgeID) specifies the unique field."
     ],
-    "explanation": "已有 BadgeID 值互不重复，因此可以建立主键；有重复或缺失值时应先处理数据。",
+    "explanation": "The existing BadgeID values are unique, so the primary key can be added. Duplicate or missing values need to be resolved first.",
     "objectives": [
       "ALTER TABLE",
-      "添加主键"
+      "Add a primary key"
     ]
   },
   {
@@ -1326,9 +1326,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-alter-foreign",
     "lessonId": "as-alter",
-    "title": "约束图书的出版社编号",
+    "title": "Constrain publisher references",
     "prompt": "Add a foreign key on BOOK.PublisherID that references PUBLISHER.PublisherID. Preserve every record.",
-    "brief": "外键列属于 BOOK，目标键属于 PUBLISHER。",
+    "brief": "The foreign-key field is in BOOK. The referenced key is in PUBLISHER.",
     "dataset": "library",
     "schemaCheck": true,
     "focusTables": [
@@ -1336,11 +1336,11 @@ export const exercises = [
     ],
     "solution": "ALTER TABLE BOOK ADD FOREIGN KEY (PublisherID) REFERENCES PUBLISHER(PublisherID);",
     "hints": [
-      "被修改的表是 BOOK。",
-      "FOREIGN KEY 括号中写本表的 PublisherID。",
-      "REFERENCES PUBLISHER(PublisherID) 指向目标键。"
+      "Modify the BOOK table.",
+      "Put BOOK's PublisherID inside FOREIGN KEY parentheses.",
+      "REFERENCES PUBLISHER(PublisherID) identifies the referenced key."
     ],
-    "explanation": "每本书只能引用存在的出版社编号；多本书仍然可以引用同一个出版社。",
+    "explanation": "Each book must reference an existing publisher ID. Several books can reference the same publisher.",
     "objectives": [
       "ALTER TABLE",
       "FOREIGN KEY",
@@ -1356,20 +1356,20 @@ export const exercises = [
     "minutes": 4,
     "id": "as-insert-club",
     "lessonId": "as-insert",
-    "title": "登记新社团",
+    "title": "Register a new club",
     "prompt": "Insert a club with ClubID C05, ClubName Photography, and Room D10 into CLUB. Keep existing clubs.",
-    "brief": "先写字段列表，再写对应的三个值。",
+    "brief": "Write the field list, then the three corresponding values.",
     "dataset": "campus",
     "focusTables": [
       "CLUB"
     ],
     "solution": "INSERT INTO CLUB (ClubID, ClubName, Room) VALUES ('C05', 'Photography', 'D10');",
     "hints": [
-      "使用 INSERT INTO CLUB。",
-      "这三个值都是文字。",
-      "字段顺序 ClubID, ClubName, Room 要与 VALUES 一致。"
+      "Use INSERT INTO CLUB.",
+      "All three values are text.",
+      "Match the VALUES order to ClubID, ClubName, Room."
     ],
-    "explanation": "插入不会替换旧记录。新编号 C05 不与已有社团冲突。",
+    "explanation": "INSERT adds a record while preserving existing records. The new ID C05 is unique.",
     "objectives": [
       "INSERT INTO",
       "VALUES"
@@ -1384,23 +1384,23 @@ export const exercises = [
     "minutes": 4,
     "id": "as-insert-student",
     "lessonId": "as-insert",
-    "title": "登记新成员",
+    "title": "Register a new member",
     "prompt": "Insert StudentID 109, Name Imani, YearGroup 10, House Willow, Score 81, Active true, ClubID C01 into STUDENT.",
-    "brief": "C01 是已存在的社团，可以作为外键。",
+    "brief": "C01 is an existing club, so it is a valid foreign-key value.",
     "dataset": "campus",
     "focusTables": [
       "STUDENT"
     ],
     "solution": "INSERT INTO STUDENT (StudentID, Name, YearGroup, House, Score, Active, ClubID) VALUES (109, 'Imani', 10, 'Willow', 81, TRUE, 'C01');",
     "hints": [
-      "列出七个字段。",
-      "数字不用文字引号，姓名和编号 C01 要引号。",
-      "Active 的值为 TRUE，ClubID 的值为 'C01'。"
+      "List all seven fields.",
+      "Use unquoted numbers and quoted text for the name and C01.",
+      "Active is TRUE and ClubID is 'C01'."
     ],
-    "explanation": "列顺序与值顺序必须对应，外键引用已有社团，才能得到有效的新记录。",
+    "explanation": "The field order must match the value order. Referencing an existing club produces a valid new record.",
     "objectives": [
-      "带类型插入",
-      "外键值"
+      "Insert typed values",
+      "Foreign-key values"
     ]
   },
   {
@@ -1412,20 +1412,20 @@ export const exercises = [
     "minutes": 4,
     "id": "as-insert-book",
     "lessonId": "as-insert",
-    "title": "登记新到图书",
+    "title": "Register a new book",
     "prompt": "Insert BookID 209, Title Small Signals, Genre Computing, Price$ 13.5, Stock 6, Digital false, PublisherID 2 into BOOK.",
-    "brief": "注意 Price$ 字段名及小数价格。",
+    "brief": "Use the exact Price$ field name and the decimal price.",
     "dataset": "library",
     "focusTables": [
       "BOOK"
     ],
     "solution": "INSERT INTO BOOK (BookID, Title, Genre, Price$, Stock, Digital, PublisherID) VALUES (209, 'Small Signals', 'Computing', 13.5, 6, FALSE, 2);",
     "hints": [
-      "BOOK 有七个字段。",
-      "Small Signals 是含空格的一个文字值。",
-      "VALUES 的最后三个值为 6, FALSE, 2。"
+      "BOOK has seven fields.",
+      "Small Signals is one text value containing a space.",
+      "The final three VALUES are 6, FALSE, 2."
     ],
-    "explanation": "新书的文字、整数、小数与布尔信息要与对应字段类型匹配。",
+    "explanation": "Match the book's text, integer, real and Boolean values to their corresponding fields.",
     "objectives": [
       "INSERT INTO",
       "REAL",
@@ -1441,20 +1441,20 @@ export const exercises = [
     "minutes": 4,
     "id": "as-update-stock",
     "lessonId": "as-update",
-    "title": "记录补货数量",
+    "title": "Record a stock delivery",
     "prompt": "Set Stock to 10 for the book with BookID 202. Change nothing else.",
-    "brief": "只定位唯一编号 202。",
+    "brief": "Target the unique ID 202.",
     "dataset": "library",
     "focusTables": [
       "BOOK"
     ],
     "solution": "UPDATE BOOK SET Stock = 10 WHERE BookID = 202;",
     "hints": [
-      "UPDATE 后写 BOOK。",
-      "SET 负责新库存值。",
-      "WHERE BookID = 202 限定一条记录。"
+      "Write BOOK after UPDATE.",
+      "SET assigns the new stock value.",
+      "WHERE BookID = 202 selects one record."
     ],
-    "explanation": "BookID 唯一标识目标。省略条件会错误地把所有图书库存改成 10。",
+    "explanation": "BookID identifies the target uniquely. Omitting WHERE would set the stock of every book to 10.",
     "objectives": [
       "UPDATE",
       "SET",
@@ -1470,22 +1470,22 @@ export const exercises = [
     "minutes": 4,
     "id": "as-update-two",
     "lessonId": "as-update",
-    "title": "同时调整售价和库存",
+    "title": "Update price and stock together",
     "prompt": "For BookID 204, set Price$ to 16 and Stock to 9. Leave all other values unchanged.",
-    "brief": "SET 内可使用逗号分隔两个赋值。",
+    "brief": "Separate the two assignments in SET with a comma.",
     "dataset": "library",
     "focusTables": [
       "BOOK"
     ],
     "solution": "UPDATE BOOK SET Price$ = 16, Stock = 9 WHERE BookID = 204;",
     "hints": [
-      "只需要一条 UPDATE。",
-      "每个字段分别写 = 新值。",
-      "SET Price$ = 16, Stock = 9，之后限制 BookID。"
+      "Use a single UPDATE statement.",
+      "Write each field followed by = and its new value.",
+      "Use SET Price$ = 16, Stock = 9, then filter by BookID."
     ],
-    "explanation": "逗号连接 SET 中的多个赋值；AND 用于条件，不能代替这里的逗号。",
+    "explanation": "Separate SET assignments with commas. AND combines conditions in WHERE.",
     "objectives": [
-      "多字段更新"
+      "Update multiple fields"
     ]
   },
   {
@@ -1497,9 +1497,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-update-paid",
     "lessonId": "as-update",
-    "title": "登记一位客户的付款",
+    "title": "Record a customer's payment",
     "prompt": "Mark all orders for CustomerID 3 as paid. Keep every other order unchanged.",
-    "brief": "同一客户可能有不止一张订单。",
+    "brief": "The same customer may have several orders.",
     "dataset": "shop",
     "focusTables": [
       "ORDERS"
@@ -1511,13 +1511,13 @@ export const exercises = [
       }
     ],
     "hints": [
-      "修改 ORDERS 的 Paid 字段。",
-      "目标是客户编号，不是某一订单编号。",
-      "WHERE CustomerID = 3 应覆盖该客户所有订单。"
+      "Update the Paid field in ORDERS.",
+      "Target the customer ID to select their orders.",
+      "WHERE CustomerID = 3 should cover all of that customer's orders."
     ],
-    "explanation": "使用客户条件能适应未来新增的同客户订单；硬编码当前某一张订单会漏改。",
+    "explanation": "A customer-based condition also covers future orders for that customer. Hard-coding a single order ID would miss other matching orders.",
     "objectives": [
-      "多记录更新",
+      "Update multiple records",
       "Boolean"
     ]
   },
@@ -1530,20 +1530,20 @@ export const exercises = [
     "minutes": 4,
     "id": "as-delete-one",
     "lessonId": "as-delete",
-    "title": "移除一条图书记录",
+    "title": "Remove a book record",
     "prompt": "Delete only the book with BookID 206 from BOOK. Keep the table and other records.",
-    "brief": "删除记录，不删除表。",
+    "brief": "Delete the record and keep the table.",
     "dataset": "library",
     "focusTables": [
       "BOOK"
     ],
     "solution": "DELETE FROM BOOK WHERE BookID = 206;",
     "hints": [
-      "使用 DELETE FROM。",
-      "通过唯一编号选中目标。",
+      "Use DELETE FROM.",
+      "Select the target using its unique ID.",
       "WHERE BookID = 206。"
     ],
-    "explanation": "删除后 BOOK 的字段结构仍存在，只有目标记录消失。",
+    "explanation": "The BOOK structure remains after deletion; only the selected record is removed.",
     "objectives": [
       "DELETE FROM"
     ]
@@ -1557,9 +1557,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-delete-fiction",
     "lessonId": "as-delete",
-    "title": "清理缺货的小说记录",
+    "title": "Remove out-of-stock fiction",
     "prompt": "Delete every book whose Genre is Fiction and Stock is 0. Keep all other books.",
-    "brief": "两个条件需要同时成立。",
+    "brief": "Both conditions must be true.",
     "dataset": "library",
     "focusTables": [
       "BOOK"
@@ -1571,11 +1571,11 @@ export const exercises = [
       }
     ],
     "hints": [
-      "先写小说类别条件。",
-      "再加零库存条件，用 AND 连接。",
+      "Write a condition for the Fiction genre.",
+      "Add a zero-stock condition and combine them with AND.",
       "Genre = 'Fiction' AND Stock = 0。"
     ],
-    "explanation": "仅按零库存删除会误删地理类书；仅按 Fiction 删除会误删仍有库存的小说。",
+    "explanation": "Filtering only by zero stock would also delete geography books. Filtering only by Fiction would delete novels still in stock.",
     "objectives": [
       "DELETE",
       "AND"
@@ -1590,9 +1590,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-delete-orders",
     "lessonId": "as-delete",
-    "title": "清理低金额未支付订单",
+    "title": "Remove small unpaid orders",
     "prompt": "Delete orders that are unpaid and have Total less than 30. Preserve other orders.",
-    "brief": "金额恰好 30 不应删除。",
+    "brief": "Keep orders with an amount of exactly 30.",
     "dataset": "shop",
     "focusTables": [
       "ORDERS"
@@ -1604,15 +1604,15 @@ export const exercises = [
       }
     ],
     "hints": [
-      "未支付对应 Paid = FALSE。",
-      "低于 30 用 <。",
-      "两个条件用 AND 组合。"
+      "Unpaid means Paid = FALSE.",
+      "Use < for less than 30.",
+      "Combine the two conditions with AND."
     ],
-    "explanation": "边界值和付款状态都重要；已支付的小额订单必须保留。",
+    "explanation": "Check both the boundary and payment status. Small orders that have been paid must remain.",
     "objectives": [
       "DELETE",
-      "复合筛选",
-      "边界"
+      "Combined filtering",
+      "Boundaries"
     ]
   },
   {
@@ -1624,9 +1624,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-average",
     "lessonId": "as-group",
-    "title": "计算活跃学生平均分",
+    "title": "Calculate the average active-student score",
     "prompt": "Return the average Score of active students. Give the result column a meaningful alias.",
-    "brief": "使用 AVG，并用 AS 为结果列命名。",
+    "brief": "Use AVG and name the result column with AS.",
     "dataset": "campus",
     "aliasColumns": [
       0
@@ -1638,11 +1638,11 @@ export const exercises = [
       }
     ],
     "hints": [
-      "平均值使用 AVG。",
-      "先筛选 Active = TRUE。",
-      "在 AVG(Score) 后加 AS 和有意义的名称。"
+      "Use AVG to calculate a mean.",
+      "Filter with Active = TRUE first.",
+      "Follow AVG(Score) with AS and a meaningful column name."
     ],
-    "explanation": "AVG 在筛选后的五条初始记录上计算；别名只改变显示标题，不改变源字段。",
+    "explanation": "AVG uses the five initially matching records. The alias changes the result heading while preserving the source field name.",
     "objectives": [
       "AVG",
       "AS"
@@ -1657,9 +1657,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-group-stock",
     "lessonId": "as-group",
-    "title": "按类别汇总图书",
+    "title": "Summarise books by genre",
     "prompt": "For each Genre, display Genre, the number of book titles, and total Stock, in that order. Give both aggregates meaningful aliases. Sort by Genre ascending.",
-    "brief": "一类一行；数量与库存总量分列展示。",
+    "brief": "Return one row per genre, with separate columns for title count and total stock.",
     "dataset": "library",
     "aliasColumns": [
       1,
@@ -1672,11 +1672,11 @@ export const exercises = [
       }
     ],
     "hints": [
-      "普通输出字段 Genre 也是分组字段。",
-      "COUNT(BookID) 数书种，SUM(Stock) 加库存。",
-      "GROUP BY Genre 后再 ORDER BY Genre。"
+      "Genre is both an output field and the grouping field.",
+      "COUNT(BookID) counts titles; SUM(Stock) adds copies.",
+      "Write GROUP BY Genre, followed by ORDER BY Genre."
     ],
-    "explanation": "GROUP BY 产生每类一条汇总行。不能只求整个书库的总和，也不能把每本书单独作为一组。",
+    "explanation": "GROUP BY produces one summary row per genre. Aggregate the records within each genre rather than the entire catalogue or each individual book.",
     "objectives": [
       "GROUP BY",
       "COUNT",
@@ -1693,9 +1693,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-group-payment",
     "lessonId": "as-group",
-    "title": "按付款状态汇总订单",
+    "title": "Summarise orders by payment status",
     "prompt": "For each Paid value, display Paid, the number of orders, and the sum of Total. Give both aggregates meaningful aliases and sort by Paid ascending.",
-    "brief": "真假状态也可以作为分组字段。",
+    "brief": "Boolean values can also be used for grouping.",
     "dataset": "shop",
     "aliasColumns": [
       1,
@@ -1708,13 +1708,13 @@ export const exercises = [
       }
     ],
     "hints": [
-      "按 Paid 分成两组。",
-      "分别 COUNT(OrderID) 与 SUM(Total)。",
-      "GROUP BY Paid，并用 ORDER BY Paid 控制输出顺序。"
+      "Group the records by Paid.",
+      "Calculate COUNT(OrderID) and SUM(Total) separately.",
+      "Use GROUP BY Paid and ORDER BY Paid to set the result order."
     ],
-    "explanation": "每组独立统计。结果中的 0 和 1 分别代表未支付与已支付，不是订单金额。",
+    "explanation": "Each group is calculated separately. The values 0 and 1 represent unpaid and paid status.",
     "objectives": [
-      "Boolean 分组",
+      "Group by a Boolean field",
       "GROUP BY"
     ]
   },
@@ -1727,9 +1727,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-like-prefix",
     "lessonId": "as-like",
-    "title": "按书名前缀搜索",
+    "title": "Search by a title prefix",
     "prompt": "Display only BookID and Title for books whose Title begins with River.",
-    "brief": "前缀后放 %；不要写成完整值相等。",
+    "brief": "Put % after the prefix and compare with LIKE.",
     "dataset": "library",
     "solution": "SELECT BookID, Title FROM BOOK WHERE Title LIKE 'River%';",
     "checks": [
@@ -1738,14 +1738,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "LIKE 比较模式。",
-      "固定前缀是 River。",
-      "模式 'River%' 中 % 可以匹配零个或多个字符。"
+      "LIKE compares text with a pattern.",
+      "The fixed prefix is River.",
+      "In 'River%', % can match zero or more characters."
     ],
-    "explanation": "River 本身也符合，因为 % 可代表零个字符；A River Story 不以 River 开头。",
+    "explanation": "River itself matches because % can match zero characters. A River Story does not start with River.",
     "objectives": [
       "LIKE",
-      "前缀",
+      "Prefixes",
       "%"
     ]
   },
@@ -1758,9 +1758,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-like-contains",
     "lessonId": "as-like",
-    "title": "搜索包含指定片段的书名",
+    "title": "Search for a phrase within a title",
     "prompt": "Display only Title for books whose title contains the text ar.",
-    "brief": "要匹配任意位置，模式两侧都放 %。",
+    "brief": "Put % on both sides to match any position.",
     "dataset": "library",
     "solution": "SELECT Title FROM BOOK WHERE Title LIKE '%ar%';",
     "checks": [
@@ -1769,14 +1769,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "片段可能在开头、中间或结尾。",
-      "左右两边的其他字符都可以变化。",
-      "使用 '%ar%'。"
+      "The text may be at the beginning, middle or end.",
+      "Any other characters may appear on either side.",
+      "Use '%ar%'."
     ],
-    "explanation": "两侧通配符表示片段两边允许任意文字；只放一侧会把搜索限制为前缀或后缀。",
+    "explanation": "Wildcards on both sides allow surrounding text. A wildcard on only one side restricts the search to a prefix or suffix.",
     "objectives": [
       "LIKE",
-      "包含匹配"
+      "Contains matching"
     ]
   },
   {
@@ -1788,9 +1788,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-like-suffix",
     "lessonId": "as-like",
-    "title": "搜索以 Press 结尾的出版社",
+    "title": "Find publishers ending in Press",
     "prompt": "Display only PublisherName for publishers whose name ends with Press.",
-    "brief": "% 放在固定后缀之前。",
+    "brief": "Put % before the fixed suffix.",
     "dataset": "library",
     "solution": "SELECT PublisherName FROM PUBLISHER WHERE PublisherName LIKE '%Press';",
     "checks": [
@@ -1799,14 +1799,14 @@ export const exercises = [
       }
     ],
     "hints": [
-      "查询 PUBLISHER 表。",
-      "固定部分在最后。",
-      "使用 '%Press'，不要在 Press 后面再加 %。"
+      "Query the PUBLISHER table.",
+      "The fixed text belongs at the end.",
+      "Use '%Press', with no % after Press."
     ],
-    "explanation": "后缀匹配会包括 South Press，但排除 Press Works，因为后者没有以 Press 结束。",
+    "explanation": "The suffix pattern includes South Press and excludes Press Works, which does not end in Press.",
     "objectives": [
       "LIKE",
-      "后缀"
+      "Suffixes"
     ]
   },
   {
@@ -1818,9 +1818,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-join-clubs",
     "lessonId": "as-join",
-    "title": "显示学生的社团名称",
+    "title": "Display each student's club name",
     "prompt": "Display STUDENT.Name and CLUB.ClubName for active students only. Join STUDENT to CLUB using ClubID.",
-    "brief": "学生表保存社团编号，名称需要从 CLUB 读取。",
+    "brief": "STUDENT stores the club ID. Read the club name from CLUB.",
     "dataset": "campus",
     "solution": "SELECT STUDENT.Name, CLUB.ClubName FROM STUDENT INNER JOIN CLUB ON STUDENT.ClubID = CLUB.ClubID WHERE STUDENT.Active = TRUE;",
     "checks": [
@@ -1829,15 +1829,15 @@ export const exercises = [
       }
     ],
     "hints": [
-      "两表共同关联字段是 ClubID。",
-      "INNER JOIN 后用 ON 比较两边 ClubID。",
-      "WHERE STUDENT.Active = TRUE 在连接后筛选活跃学生。"
+      "ClubID links the two tables.",
+      "After INNER JOIN, compare the two ClubID fields in ON.",
+      "WHERE STUDENT.Active = TRUE filters for active students after the join."
     ],
-    "explanation": "只把编号相等的学生与社团配对，避免生成学生与每个社团的所有组合。",
+    "explanation": "Match students and clubs with equal IDs to pair each student with the correct club.",
     "objectives": [
       "INNER JOIN",
       "ON",
-      "限定字段"
+      "Qualified fields"
     ]
   },
   {
@@ -1849,9 +1849,9 @@ export const exercises = [
     "minutes": 4,
     "id": "as-join-publishers",
     "lessonId": "as-join",
-    "title": "找英国出版社的图书",
+    "title": "Find books from UK publishers",
     "prompt": "Display BOOK.Title and PUBLISHER.PublisherName for books published by a publisher whose Country is UK. Sort by BOOK.Title ascending.",
-    "brief": "条件字段来自出版社表，结果同时使用两表。",
+    "brief": "The condition uses a publisher field and the result uses both tables.",
     "dataset": "library",
     "solution": "SELECT BOOK.Title, PUBLISHER.PublisherName FROM BOOK INNER JOIN PUBLISHER ON BOOK.PublisherID = PUBLISHER.PublisherID WHERE PUBLISHER.Country = 'UK' ORDER BY BOOK.Title;",
     "checks": [
@@ -1860,11 +1860,11 @@ export const exercises = [
       }
     ],
     "hints": [
-      "通过 PublisherID 连接。",
-      "Country 属于 PUBLISHER。",
-      "筛选 UK 后按 BOOK.Title 排序。"
+      "Join on PublisherID.",
+      "Country belongs to PUBLISHER.",
+      "Filter for UK, then sort by BOOK.Title."
     ],
-    "explanation": "表名前缀明确字段来源。同一出版社可以对应多本书，所以名称在结果中可能重复。",
+    "explanation": "Table prefixes identify the source of each field. A publisher can have several books, so its name may appear more than once.",
     "objectives": [
       "INNER JOIN",
       "WHERE",
@@ -1880,9 +1880,9 @@ export const exercises = [
     "minutes": 6,
     "id": "as-join-summary",
     "lessonId": "as-join",
-    "title": "按客户汇总已支付金额",
+    "title": "Total paid amounts by customer",
     "prompt": "For each customer with at least one paid order, display CustomerName and the sum of paid order Total. Give the aggregate a meaningful alias. Sort by CustomerName ascending, then by CustomerID ascending when names match. Use no more than two tables.",
-    "brief": "先连接、筛选已支付订单，再按客户分组。",
+    "brief": "Join the tables, filter paid orders, then group by customer.",
     "dataset": "shop",
     "aliasColumns": [
       1
@@ -1894,16 +1894,16 @@ export const exercises = [
       }
     ],
     "hints": [
-      "CUSTOMER 与 ORDERS 通过 CustomerID 连接。",
-      "WHERE Paid = TRUE 决定哪些订单参与总额。",
-      "按客户编号和姓名分组；ORDER BY 先写姓名，再写编号，使同名行的顺序确定。"
+      "CustomerID links CUSTOMER and ORDERS.",
+      "WHERE Paid = TRUE selects the orders to include in the total.",
+      "Group by customer ID and name. In ORDER BY, sort by name and then ID to order customers with identical names consistently."
     ],
-    "explanation": "先过滤再分组；按客户唯一编号分组可防止同名客户错误合并。姓名相同时再按编号排序，结果顺序确定。无已支付订单的客户不出现在结果中。",
+    "explanation": "Filter before grouping. Grouping by the unique customer ID keeps customers with the same name separate. Break name ties using the ID. Customers without paid orders are excluded.",
     "objectives": [
-      "两表查询",
+      "Two-table queries",
       "GROUP BY",
       "SUM",
-      "同名客户"
+      "Customers with identical names"
     ]
   }
 ];
@@ -1914,21 +1914,20 @@ export const syllabusLinks = [
     "level": "ig",
     "title": "IGCSE 0478 · 2026–2028",
     "url": "https://www.cambridgeinternational.org/Images/697167-2026-2028-syllabus.pdf",
-    "note": "第 9 节，第 30 页：单表数据库、基本类型、主键、查询与输出预测。"
+    "note": "Section 9, page 30: single-table databases, basic types, primary keys, queries and output prediction."
   },
   {
     "id": "9618-2026",
     "level": "as",
     "title": "AS & A Level 9618 · 2026",
     "url": "https://www.cambridgeinternational.org/Images/697372-2026-syllabus.pdf",
-    "note": "第 8.3 节，第 26–27 页：DDL、DML、两表查询和汇总。"
+    "note": "Section 8.3, pages 26–27: DDL, DML, two-table queries and summaries."
   },
   {
     "id": "9618-2027",
     "level": "as",
     "title": "AS & A Level 9618 · 2027–2029",
     "url": "https://www.cambridgeinternational.org/Images/721397-2027-2029-syllabus.pdf",
-    "note": "第 8.3 节：本工具所用 SQL 范围与 2026 版一致；完整 A Level 继承这一基础。"
+    "note": "Section 8.3: the SQL scope matches the 2026 syllabus. This AS foundation also applies to the full A Level."
   }
 ];
-

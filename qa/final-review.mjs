@@ -10,10 +10,10 @@ await page.goto('http://localhost:4173/#lab');await page.locator('#sql-editor').
 await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('querypath.v1'));s.lab={dataset:'campus',sql:'SELECT Name FROM STUDENT;',snapshot:{bytes:[1,2,3,4],databaseName:'broken'}};localStorage.setItem('querypath.v1',JSON.stringify(s));window.addEventListener('pagehide',()=>localStorage.setItem('querypath.v1',JSON.stringify(s)),{once:true});});
 await page.reload();await page.locator('#sql-editor').waitFor();
 assert.equal(await page.locator('#sql-editor').inputValue(),'SELECT Name FROM STUDENT;');
-assert.match(await page.locator('#toast').innerText(),/快照无法恢复/);
+assert.match(await page.locator('#toast').innerText(),/snapshot could not be restored/);
 await page.locator('[data-action="run"]').click();assert.equal(await page.locator('#output-panel .feedback.error').count(),0);
 await page.locator('#level-select').selectOption('as');await page.locator('#sql-editor').waitFor();await page.locator('#sql-editor').fill('SELECT Name, SUM(Score) FROM STUDENT;');await page.locator('[data-action="run"]').click();await page.locator('#output-panel .feedback.error').waitFor();
-assert.match(await page.locator('#output-panel').innerText(),/GROUP|分组|聚合/);
+assert.match(await page.locator('#output-panel').innerText(),/GROUP|group|aggregate/);
 await page.close();
 const fresh=await context.newPage();
 await fresh.goto('http://localhost:4173');

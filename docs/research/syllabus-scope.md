@@ -40,4 +40,4 @@ Past papers additionally demonstrate LIKE patterns, comma joins with equality in
 
 ## Delivery and acceptance
 
-Responsive local web/PWA, Chinese explanations with English prompts and SQL. No account required. Local drafts/progress, mistake review, lesson path, free SQL lab, timed practice and export/import. Phone/tablet/desktop visual checks and keyboard checks; at least 20 documented real usability issues resolved. No GitHub uploads or release packaging. Local static source runs directly with Node, with no build step.
+Responsive English-language web/PWA with lessons, exercises, hints, feedback and syntax references in English. Local drafts/progress, mistake review, lesson path, free SQL lab, timed practice and export/import. Phone/tablet/desktop visual checks and keyboard checks; 31 documented usability issues resolved. Available through GitHub Pages, with local static source that runs directly with Node.

@@ -24,10 +24,10 @@
       "text literals",
       "output prediction"
     ],
-    "analysis": "图书库存情境同时要求追踪数值等值筛选的结果和补全按作者检索。选择的字段与筛选字段不同，不能把 WHERE 字段自动加入输出。评分分别检查结果记录与三个语句部分。",
+    "analysis": "A book-stock scenario combines tracing a numeric equality filter with completing an author search. Output and filter fields differ. The mark scheme checks the returned records and the three query clauses separately.",
     "allowances": [
-      "评分示例允许文字常量使用单引号或双引号。",
-      "该题还接受用 LIKE 匹配完整作者名；这只证明这道题的等价答案获准，不证明 IG 要求通配符 LIKE。"
+      "The mark scheme accepts single or double quotes around text literals.",
+      "This question also accepts LIKE with a complete author name. This is evidence for that exact-match answer, rather than an IG wildcard requirement."
     ]
   },
   {
@@ -54,9 +54,9 @@
       "Boolean",
       "$ identifiers"
     ],
-    "analysis": "电视产品情境要求选择指定三个字段并筛选智能电视。字段含货币符号，执行器若仅允许字母数字下划线会拒绝真实试卷标识符。填空四个位置各有评分点。",
+    "analysis": "A television catalogue asks for three specified fields and a smart-TV filter. A field name includes a currency symbol. Four completion positions carry separate marks.",
     "allowances": [
-      "评分示例使用未加引号的 YES 作为布尔值；该表的 SmartTV 由数据类型题确认为 Boolean。"
+      "The example uses unquoted YES as a Boolean value. The data-type question identifies SmartTV as Boolean."
     ]
   },
   {
@@ -82,9 +82,9 @@
       "WHERE",
       "text literals"
     ],
-    "analysis": "音乐目录以同一类别条件对比时长求和与歌曲计数，重点在分清总量与记录数量。题面抽取文本的两个表达式未出现 SELECT；评分要求解释含义，而非把省略形式作为可执行 SQL。",
+    "analysis": "A music catalogue compares a sum of durations with a count of songs under the same category condition. The printed expressions omit SELECT because the task asks for their meaning.",
     "allowances": [
-      "这是一道解释题，评分未给出完整可执行改写；教学示例仍应写完整 SELECT。"
+      "This is an explanation question. Executable lesson examples use a complete SELECT statement."
     ]
   },
   {
@@ -112,10 +112,10 @@
       "output prediction",
       "$ identifiers"
     ],
-    "analysis": "度假屋数据考查包含边界值的筛选以及指定列的结果抄写。评分关注三条正确记录和横纵排列，说明输出题还需要练习列次序与按题面展示结果。",
+    "analysis": "A holiday-home table tests an inclusive boundary and transcription of specified output columns. The marks cover three correct records and their arrangement, making column order part of the result task.",
     "allowances": [
-      "本题没有提供额外 SQL 写法许可。",
-      "Rate$ 是题面原有字段名；不能视为非法标识符。"
+      "This question gives no additional alternative SQL syntax.",
+      "Rate$ is the field name used in the question and must be preserved."
     ]
   },
   {
@@ -140,9 +140,9 @@
       "WHERE",
       "keyword meaning"
     ],
-    "analysis": "模型商店题要求解释三个基本子句的职责：输出哪些字段、数据来自哪张表、按什么条件筛选。适合用作 SQL 结构理解题，而非只训练记忆一整条答案。",
+    "analysis": "A model-shop task asks what SELECT, FROM and WHERE do: choose fields, name a table and filter records. It tests understanding of query structure.",
     "allowances": [
-      "没有特别替代语法；评分区分字段选择、表名和筛选条件。"
+      "The marks distinguish field selection, the table name and the filter condition."
     ]
   },
   {
@@ -169,10 +169,10 @@
       "=",
       "text literals"
     ],
-    "analysis": "马匹登记表要求补全关键字、表名和产地条件字段。检索条件中的产地与要显示的品种是不同字段，数据面板应支持学习者检查这一区别。",
+    "analysis": "A horse register asks for keywords, the table name and the origin field. The origin filter and the displayed breed are different fields.",
     "allowances": [
-      "评分的完整语句使用双引号文字常量。",
-      "题面抽取中字段列表末尾有逗号，评分的完整语句没有；不得将尾逗号推广成合法教学语法。"
+      "The complete example statement uses double-quoted text.",
+      "A trailing comma appears in the extracted question text but not in the complete mark-scheme statement. The complete statement is the model for executable syntax."
     ]
   },
   {
@@ -200,10 +200,10 @@
       "AND",
       "Boolean"
     ],
-    "analysis": "雉鸟资料先考查严格大于阈值的输出，后要求同时满足繁殖状态和幼鸟数量条件。此题把单条件查询推进到布尔与数值条件组合。",
+    "analysis": "A pheasant table first tests output for a strict greater-than condition, then combines breeding status and chick count. It joins Boolean and numeric conditions.",
     "allowances": [
-      "评分允许直接把 Boolean 字段用作条件。",
-      "两个 AND 条件交换次序在该题评分中明确列为等价答案。"
+      "The mark scheme accepts a Boolean field directly as a condition.",
+      "The mark scheme explicitly accepts either order for the two AND conditions."
     ]
   },
   {
@@ -228,10 +228,10 @@
       "WHERE",
       "Boolean"
     ],
-    "analysis": "仓储租赁题要求只输出代码、价格、面积并按升降设备状态筛选。评分给字段列表部分分，并独立检查数据表和布尔条件，支持教学时分项反馈。",
+    "analysis": "A warehouse-rental task outputs code, price and area, filtered by hoist availability. The field list, source table and Boolean condition have separate marking points.",
     "allowances": [
-      "评分示例显式将 Hoist 与 TRUE 比较。",
-      "数据类型小题同时允许该属性以 Boolean 或文字表示；执行时必须以当前练习声明的类型为准。"
+      "The example compares Hoist explicitly with TRUE.",
+      "The data-type question accepts Boolean or text for this attribute. Execution should follow the type declared for the current exercise."
     ]
   },
   {
@@ -258,10 +258,10 @@
       "=",
       "text literals"
     ],
-    "analysis": "饮料库存问的是罐装商品的库存数量总和，不是有多少条罐装商品记录。此例直接支持在 SUM 与 COUNT 间提供针对性纠错提示。",
+    "analysis": "A drinks inventory asks for the total stock of canned products. SUM is needed to add quantities, while COUNT would count product records.",
     "allowances": [
-      "评分示例使用单引号字符串。",
-      "SUM 的参数是库存数字字段，筛选字段是包装类型。"
+      "The example uses single-quoted text.",
+      "SUM takes the numeric stock field, while the filter uses packaging type."
     ]
   },
   {
@@ -290,10 +290,10 @@
       "AND",
       "Boolean"
     ],
-    "analysis": "电视订阅题区分所有合约的月份累计与订阅新闻的合约数，再要求筛出同时订阅新闻和体育者。COUNT 仍由 WHERE 控制哪些记录参与计算。",
+    "analysis": "A television-subscription task compares total contract months with the number of news subscriptions, then filters for subscriptions to both news and sport. WHERE determines the records counted.",
     "allowances": [
-      "评分接受裸 Boolean 条件和显式与 TRUE 比较。",
-      "评分接受交换两个 AND 条件的次序。"
+      "The mark scheme accepts a bare Boolean condition or an explicit comparison with TRUE.",
+      "The mark scheme accepts either order for the AND conditions."
     ]
   },
   {
@@ -322,10 +322,10 @@
       "Boolean",
       "output prediction"
     ],
-    "analysis": "航空收藏查询先过滤多发动机飞机，再按年份递增排列指定列。后续补全只显示标识与型号的可飞行记录。排序是独立于筛选和输出列的步骤。",
+    "analysis": "An aircraft collection is filtered for multiple engines and sorted by year. A later completion displays identifiers and models of flyable aircraft, distinguishing output fields, filtering and sorting.",
     "allowances": [
-      "ORDER BY 未写方向时，评分结果按年份从小到大排列。",
-      "评分接受可飞行字段与 Y 比较，或直接使用该布尔字段作为条件。"
+      "ORDER BY without a direction produces ascending year order in the accepted result.",
+      "The mark scheme accepts comparison with Y or the flyable Boolean field used directly as a condition."
     ]
   },
   {
@@ -354,11 +354,11 @@
       "NOT",
       "equivalent predicates"
     ],
-    "analysis": "奶酪库存题先追踪供货商筛选，再要求检索缺货商品并提出使用另一字段的等价条件。数据中的缺货状态与零库存重量形成题目限定的等价关系。",
+    "analysis": "A cheese inventory traces a supplier filter, then asks for out-of-stock records and an equivalent condition using another field. The given data links out-of-stock status to zero stock weight.",
     "allowances": [
-      "本题评分接受 NOT 加布尔字段、与 FALSE/No/带引号 No 比较，或以库存重量等于零筛选。",
-      "NOT 是已见评分许可，未列入 2026–2028 IG 数据库核心关键字名单。",
-      "两个条件只在题目给定的数据约束下等价，不能作为一般数据库定律。"
+      "Accepted alternatives include NOT with the Boolean field, comparison with FALSE, No or quoted No, and a zero-stock-weight condition.",
+      "NOT is evidenced in the mark scheme but is absent from the 2026–2028 IG core database keyword list.",
+      "The alternatives are equivalent under this question's stated data constraints."
     ]
   },
   {
@@ -387,10 +387,10 @@
       "$ identifiers",
       "output prediction"
     ],
-    "analysis": "酒店预订题以不等于真值查找星期一可用客房，要求四列输出。此卷证明不等比较、短布尔写法与货币符号字段会出现在结果追踪题中。",
+    "analysis": "A hotel-booking task uses a not-equal Boolean condition to find rooms available on Monday and displays four fields. It includes short Boolean notation and currency-symbol identifiers.",
     "allowances": [
-      "题面直接使用未加引号的 T，而表中对应字段由数据类型小题确认为 Boolean。",
-      "评分检查四个正确输出列、记录排列和无额外内容。"
+      "The query uses unquoted T. The data-type question identifies the corresponding field as Boolean.",
+      "The marks check four correct output columns, record arrangement and absence of extra output."
     ]
   },
   {
@@ -422,10 +422,10 @@
       "NOT",
       "equivalent predicates"
     ],
-    "analysis": "建材库存先按重量筛选再按未显示的价格排序，后用状态或数量判断缺货。另有数据库术语题。适合练习排序字段不必出现在输出字段中，以及场景约束下的等价条件。",
+    "analysis": "A building-materials inventory filters by weight and sorts by a price field omitted from the output. It later uses status or quantity to identify out-of-stock items and also tests database terminology.",
     "allowances": [
-      "评分给出默认递增的 ORDER BY 结果。",
-      "缺货筛选接受 NOT 布尔字段、FALSE/No/带引号 No，或袋数等于零；均为本题明确许可。"
+      "The accepted ORDER BY result uses the default ascending direction.",
+      "The mark scheme accepts NOT, FALSE, No, quoted No or a zero bag count for the out-of-stock condition in this question."
     ]
   },
   {
@@ -454,10 +454,10 @@
       "Boolean",
       "output prediction"
     ],
-    "analysis": "城市资料先筛选指定洲并按人口排序，后补全只列出四个指定属性的首都查询。评分同时要求结果内容、三列布局及正确顺序。",
+    "analysis": "A city table is filtered by continent and sorted by population. A later completion selects four specified capital-city attributes. The result task checks values, three-column layout and order.",
     "allowances": [
-      "默认 ORDER BY 按人口递增。",
-      "首都查询的评分示例显式比较 TRUE。"
+      "The default ORDER BY result sorts population ascending.",
+      "The capital-city example explicitly compares the field with TRUE."
     ]
   },
   {
@@ -485,9 +485,9 @@
       "text literals",
       "Boolean"
     ],
-    "analysis": "公交时刻表先按司机文字条件追踪结果，再按是否返程筛选只显示目的地。不同子题使用不同输出字段，练习不能仅比较返回的行数。",
+    "analysis": "A bus timetable first traces a driver-name filter, then displays destinations for return journeys. The subquestions have different projections, so row count alone cannot establish correctness.",
     "allowances": [
-      "评分示例使用未加引号的 Yes；Return 在前一小题明确为 Boolean。"
+      "The example uses unquoted Yes. Return is explicitly identified as Boolean in the preceding part."
     ]
   },
   {
@@ -513,9 +513,9 @@
       "=",
       "text literals"
     ],
-    "analysis": "首都资料要求列出指定洲的城市、国家、人口。四个评分点分别覆盖输出字段集合、FROM、条件字段与条件文字，适合逐项显示错误原因。",
+    "analysis": "A capital-city query requests city, country and population for a specified continent. Four marking points cover output fields, FROM, the condition field and its text value.",
     "allowances": [
-      "评分明确接受单引号或双引号包围相同洲名。"
+      "The mark scheme explicitly accepts single or double quotes around the continent name."
     ]
   },
   {
@@ -541,10 +541,10 @@
       "Boolean",
       "projection order"
     ],
-    "analysis": "电脑零件表按是否已补货筛选，显示标识、名称、订货日期。字段来自不同语义类别，要求精确读取表结构，而不是选择全部字段。",
+    "analysis": "A computer-parts table filters by restocking status and displays the identifier, name and order date. It requires the specified fields rather than every field.",
     "allowances": [
-      "本题评分明确允许 SELECT 中三个正确字段采用任意次序。",
-      "评分示例显式比较 TRUE；不要把其他输出题的列次序要求机械移植到本题。"
+      "This question explicitly accepts any order for the three correct SELECT fields.",
+      "The example compares the field with TRUE. Its accepted column-order flexibility is specific to this task."
     ]
   },
   {
@@ -574,10 +574,10 @@
       "Boolean",
       "keyword meaning"
     ],
-    "analysis": "一题把表来源、筛选、排序、计数与关键字配对，另一题补全尚未获得出行许可的学生姓名查询。既检查概念理解，也检查布尔假值过滤。",
+    "analysis": "One question matches source, filtering, sorting and counting to keywords. Another completes a query for students without travel permission, testing both clause roles and a false Boolean condition.",
     "allowances": [
-      "评分示例显式比较 False。",
-      "关键字配对的评分页含连线图；线性 PDF 文本顺序不能当作配对结果。"
+      "The example explicitly compares the field with False.",
+      "The keyword-matching mark scheme includes connecting lines. Read the diagram rather than using the order of extracted PDF text."
     ]
   },
   {
@@ -606,10 +606,10 @@
       ">=",
       "output prediction"
     ],
-    "analysis": "水鸟资料的输出题按寿命排序，但输出只含种类、体长、翼展；写查询题再要求包含边界的寿命过滤并按种类排序。排序字段与输出字段解耦是重要验收项。",
+    "analysis": "A waterbird result task sorts by lifespan but displays species, length and wingspan. A writing task then uses an inclusive lifespan filter and sorts by species.",
     "allowances": [
-      "ORDER BY 未写方向时，给定答案按寿命递增。",
-      "写查询的评分示例使用大于等于关系，并把 ORDER BY 接在筛选条件之后。"
+      "With no direction stated, the accepted result sorts lifespan ascending.",
+      "The query-writing example uses greater than or equal to and places ORDER BY after the filter."
     ]
   },
   {
@@ -635,10 +635,10 @@
       "=",
       "Boolean-like text"
     ],
-    "analysis": "设备借用题筛选未归还物品，只展示描述与借用者。题面使用 Yes/No 值，评分采用带引号文字比较，提醒执行器不能强制所有此类表示只接受一种书写。",
+    "analysis": "An equipment-loan task finds unreturned items and displays description and borrower. The question uses Yes/No values and the example compares quoted text.",
     "allowances": [
-      "评分示例使用双引号包围 No。",
-      "若应用把 Returned 建模为 Boolean，应仅针对该字段将题面布尔别名与文字表示归一，避免改写普通文字常量。"
+      "The example encloses No in double quotes.",
+      "If Returned is modelled as Boolean, normalise Boolean aliases for that field while preserving ordinary text literals."
     ]
   }
 ]

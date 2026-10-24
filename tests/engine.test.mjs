@@ -21,8 +21,8 @@ test('scope distinguishes IG and AS and rejects executable extras',async () => {
   const db = await sandbox('ig');
   for (const query of ['DELETE FROM STUDENT','SELECT AVG(Score) FROM STUDENT','SELECT * FROM STUDENT, CLUB','SELECT ClubID, COUNT(*) FROM STUDENT GROUP BY ClubID',"SELECT * FROM STUDENT WHERE Name LIKE 'A%'",'SELECT * FROM STUDENT WHERE Score IN (1,2)','SELECT randomblob(1000000) FROM STUDENT','SELECT * FROM (SELECT * FROM STUDENT)']) assert.throws(() => db.run(query));
   assert.doesNotThrow(() => validateSql("SELECT Name FROM STUDENT WHERE Name LIKE 'Amy'",'ig'));
-  assert.throws(() => validateSql("SELECT Name FROM STUDENT WHERE Name LIKE 'Amy' OR Name LIKE '%'",'ig'),/通配/);
-  assert.throws(() => validateSql('SELECT * FROM STUDENT, CLUB, STUDENT S','as'),/两张表/);
+  assert.throws(() => validateSql("SELECT Name FROM STUDENT WHERE Name LIKE 'Amy' OR Name LIKE '%'",'ig'),/wildcard/);
+  assert.throws(() => validateSql('SELECT * FROM STUDENT, CLUB, STUDENT S','as'),/two tables/);
   db.close();
 });
 test('contextual Boolean, ordinary string No, bare and NOT Boolean conditions',async () => {
@@ -45,7 +45,7 @@ test('dates normalize hash literals and contextual quoted dates',async () => {
   const db = await sandbox();
   assert.equal(db.run('SELECT Name FROM STUDENT WHERE Joined > #01/01/2026#').rows.length,2);
   assert.equal(db.run("SELECT Name FROM STUDENT WHERE Joined > '01/01/26'").rows.length,2);
-  assert.throws(() => db.run('SELECT Name FROM STUDENT WHERE Joined > #31/02/2026#'),/不存在/);
+  assert.throws(() => db.run('SELECT Name FROM STUDENT WHERE Joined > #31/02/2026#'),/not a valid date/);
   db.close();
 });
 test('writes persist, snapshots restore, reset seeds, failed batches roll back',async () => {
@@ -64,19 +64,19 @@ test('DDL types aliases, multiple ADD columns, primary key enforces uniqueness a
   db.run('CREATE TABLE ITEM (ID INT, Title VARCHAR(20)); ALTER TABLE ITEM ADD Cost REAL, Active BOOLEAN; ALTER TABLE ITEM ADD PRIMARY KEY (ID)');
   assert.equal(db.tables().find(table => table.name === 'ITEM').columns[0].type,'INTEGER');
   db.run('INSERT INTO ITEM VALUES (1,"Pen",2.5,YES)');
-  assert.throws(() => db.run('INSERT INTO ITEM VALUES (1,"Pen",2.5,YES)'),/重复/);
-  assert.throws(() => db.run('INSERT INTO ITEM VALUES (NULL,"Pen",2.5,YES)'),/不能为空/);
-  assert.throws(() => db.run('CREATE TABLE BAD (ID BANANA)'),/类型/);
+  assert.throws(() => db.run('INSERT INTO ITEM VALUES (1,"Pen",2.5,YES)'),/Duplicate/);
+  assert.throws(() => db.run('INSERT INTO ITEM VALUES (NULL,"Pen",2.5,YES)'),/cannot be NULL/);
+  assert.throws(() => db.run('CREATE TABLE BAD (ID BANANA)'),/type/);
   db.run('CREATE TABLE TEXTKEY (ID VARCHAR(10) PRIMARY KEY, Label TEXT)');
-  assert.throws(() => db.run("INSERT INTO TEXTKEY VALUES (NULL,'x')"),/不能为空/);
+  assert.throws(() => db.run("INSERT INTO TEXTKEY VALUES (NULL,'x')"),/cannot be NULL/);
   db.close();
 });
 test('ALTER foreign keys enforce actual references and protect atomic state',async () => {
   const db = await sandbox();
   db.run('ALTER TABLE STUDENT ADD FOREIGN KEY (ClubID) REFERENCES CLUB(ClubID)');
   assert.equal(db.tables().find(table => table.name === 'STUDENT').foreignKeys.length,1);
-  assert.throws(() => db.run('UPDATE STUDENT SET ClubID=99 WHERE StudentID=1'),/外键/);
-  assert.throws(() => db.run('DELETE FROM CLUB WHERE ClubID=1'),/外键/);
+  assert.throws(() => db.run('UPDATE STUDENT SET ClubID=99 WHERE StudentID=1'),/Foreign-key/);
+  assert.throws(() => db.run('DELETE FROM CLUB WHERE ClubID=1'),/Foreign-key/);
   assert.equal(db.run('SELECT ClubID FROM STUDENT WHERE StudentID=1').rows[0][0],1);
   db.close();
 });
@@ -96,10 +96,10 @@ test('an empty query preserves projection columns for result headers and accurat
 });
 test('aggregate queries reject arbitrary bare fields and accept grouped fields or PK-dependent fields',async () => {
   const db = await sandbox();
-  assert.throws(() => db.run('SELECT Name, SUM(Score) FROM STUDENT'),/聚合结果不能/);
-  assert.throws(() => db.run('SELECT ClubID, Name, AVG(Score) FROM STUDENT GROUP BY ClubID'),/Name.*多个值/);
-  assert.throws(() => db.run('SELECT Name AS ClubID, AVG(Score) FROM STUDENT GROUP BY ClubID'),/Name.*多个值/);
-  assert.throws(() => db.run('SELECT STUDENT.*, COUNT(*) FROM STUDENT GROUP BY ClubID'),/多个值/);
+  assert.throws(() => db.run('SELECT Name, SUM(Score) FROM STUDENT'),/aggregate cannot/);
+  assert.throws(() => db.run('SELECT ClubID, Name, AVG(Score) FROM STUDENT GROUP BY ClubID'),/Name.*several values/);
+  assert.throws(() => db.run('SELECT Name AS ClubID, AVG(Score) FROM STUDENT GROUP BY ClubID'),/Name.*several values/);
+  assert.throws(() => db.run('SELECT STUDENT.*, COUNT(*) FROM STUDENT GROUP BY ClubID'),/several values/);
   assert.deepEqual(db.run('SELECT ClubID, AVG(Score) FROM STUDENT GROUP BY ClubID ORDER BY ClubID').rows,[[1,65],[2,90]]);
   assert.deepEqual(db.run('SELECT CLUB.ClubName, SUM(STUDENT.Score) FROM CLUB INNER JOIN STUDENT ON CLUB.ClubID=STUDENT.ClubID GROUP BY CLUB.ClubID ORDER BY CLUB.ClubID').rows,[['Music',130],['Sport',90]]);
   assert.deepEqual(db.run('SELECT C.ClubName, SUM(S.Score) AS Total FROM CLUB AS C, STUDENT S WHERE C.ClubID=S.ClubID GROUP BY C.ClubID ORDER BY C.ClubID').rows,[['Music',130],['Sport',90]]);

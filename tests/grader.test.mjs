@@ -50,7 +50,7 @@ test('empty SQL results retain their projection width for grading', async () => 
   assert.equal(checked.want.rows.length, 0);
   assert.deepEqual(checked.want.columns, ['Name']);
   assert.equal(checked.passed, false);
-  assert.match(checked.detail, /字段数量/);
+  assert.match(checked.detail, /number of output columns/);
 });
 
 test('required aggregate titles accept another suitable alias but reject its omission', async () => {
@@ -58,7 +58,7 @@ test('required aggregate titles accept another suitable alias but reject its omi
   assert.equal((await grade(solution, 'SELECT COUNT(ID) AS LearnerCount FROM Learner;', {aliasColumns:[0]})).passed, true);
   const missing = await grade(solution, 'SELECT COUNT(ID) FROM Learner;', {aliasColumns:[0]});
   assert.equal(missing.passed, false);
-  assert.match(missing.detail, /列标题/);
+  assert.match(missing.detail, /column heading/);
 });
 
 test('supplemental boundary records distinguish >= from > despite an identical example result', async () => {
@@ -67,7 +67,7 @@ test('supplemental boundary records distinguish >= from > despite an identical e
   assert.equal((await grade(solution, answer)).passed, true);
   const checked = await grade(solution, answer, {checks:[{seed:"INSERT INTO Learner VALUES(4, 'Dani', 80);"}]});
   assert.equal(checked.passed, false);
-  assert.match(checked.detail, /新增数据/);
+  assert.match(checked.detail, /additional dataset/);
 });
 
 test('supplemental records reject names hardcoded to the visible answer', async () => {
@@ -94,7 +94,7 @@ test('a read task cannot be solved by changing the source data before returning 
   const answer = "SELECT Name FROM Learner; UPDATE Learner SET Score = 0; SELECT Name FROM Learner WHERE ID >= 2;";
   const checked = await grade(solution, answer);
   assert.equal(checked.passed, false);
-  assert.match(checked.detail, /原始数据/);
+  assert.match(checked.detail, /original data/);
 });
 
 test('mutation checks also exercise the exact filtering boundary', async () => {
@@ -102,7 +102,7 @@ test('mutation checks also exercise the exact filtering boundary', async () => {
     checks:[{seed:"INSERT INTO Learner VALUES(4, 'Dani', 80);"}]
   });
   assert.equal(checked.passed, false);
-  assert.match(checked.detail, /新增数据/);
+  assert.match(checked.detail, /additional dataset/);
 });
 
 test('INSERT grading compares the actual stored values, including identifier text', async () => {
@@ -115,7 +115,7 @@ test('CREATE DATABASE must use the requested name', async () => {
   assert.equal((await grade('CREATE DATABASE Revision;', 'CREATE DATABASE revision;')).passed, true);
   const wrong = await grade('CREATE DATABASE Revision;', 'CREATE DATABASE SomethingElse;');
   assert.equal(wrong.passed, false);
-  assert.match(wrong.detail, /数据库名称/);
+  assert.match(wrong.detail, /database name/);
 });
 
 const create = 'CREATE TABLE Assessment(ID INTEGER NOT NULL, Label VARCHAR(20) NOT NULL, Score REAL, PRIMARY KEY(ID));';

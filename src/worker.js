@@ -17,13 +17,13 @@ self.onmessage = async ({data}) => {
       engine = await createEngine({...options,SQL:runtime});
       result = {tables:engine.tables(),databaseName:engine.databaseName};
     } else {
-      if (!engine) throw new Error('请先初始化 SQL 沙盒。');
+      if (!engine) throw new Error("Initialise the SQL sandbox first.");
       if (type === 'run') result = engine.run(options.sql,{level:options.level});
       else if (type === 'tables') result = engine.tables();
       else if (type === 'export') result = engine.export();
       else if (type === 'restore') { engine.restore(options.snapshot); result = engine.tables(); }
       else if (type === 'reset') result = engine.reset();
-      else throw new Error('未知的沙盒操作。');
+      else throw new Error("Unknown sandbox operation.");
     }
     self.postMessage({id,result});
   } catch (error) { self.postMessage({id,error:error.message}); }
